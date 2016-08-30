@@ -1,0 +1,247 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsxtra}
+\usepackage[all,cmtip]{xy}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}[section]
+
+\newtheorem{fact}{Fact}[thm]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{conj}{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{thmA}{Theorem A}
+\newtheorem*{thmB}{Theorem B}
+\newtheorem*{thmC}{Theorem C}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{claim}{Claim}
+\newtheorem{exam}[thm]{Example}
+
+
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+\vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\multint{\Xint\times}
+\def\dashint{\Xint-}
+
+\def\image{\text{Im}}
+\def\And{\quad\hbox{ and }\quad}
+\def\cc{completely continuous\ }
+\def\ccly{completely continuously\ }
+\def\fg{{\frak g}}
+\def\fn{{\frak n}}
+\def\ft{{\frak t}}
+\def\fb{{\frak b}}
+\def\fU{{\frak U}}
+\def\Gal{\operatorname{Gal}}
+
+\def\lra{\longrightarrow}
+
+\def\bA{\mathbb{A}}
+\def\cA{{\mathcal A}}
+\def\fA{{\frak A}}
+\def\cB{{\mathcal B}}
+\def\cC{{\mathcal C}}
+\def\tcC{{\widetilde{\cal C}}}
+\def\cD{{\mathcal D}}
+\def\Dist{\hbox{Dist}}
+\def\cE{{\mathcal E}}
+\def\fD{{\frak D}}
+\def\cR{{\mathcal R}}
+\def\tR{{\frak R}}
+\def\tF{{\frak F}}
+\def\cG{\mathcal{G}}
+\def\bG{\mathbb{G}}
+\def\tJ{{\frak J}}
+\def\tC{{\frak C}}
+\def\cF{{\mathcal F}}
+\def\cK{{\mathcal K}}
+\def\tK{{\widetilde{\cal K}}}
+\def\cS{{\mathcal S}}
+\def\dV{{(V^\ast)}}
+\def\fI{{\frak I}}
+\def\fS{\frak S}
+\def\cT{\mathcal{T}}
+\def\fp{\frak p}
+\def\cP{\mathcal{P}}
+\def\fP{\frak P}
+\def\fH{{\frak H}}
+\def\cL{{\mathcal L}}
+\def\cM{{\mathcal M}}
+\def\cO{\mathcal{O}}
+\def\cU{\mathcal{U}}
+\def\cV{\mathcal{V}}
+\def\bX{\mathbb{X}}
+\def\cX{{\mathcal X}}
+\def\Z{{\Bbb Z}}
+\def\R{{\Bbb R}}
+\def\B{{\mathbb{B}}}
+\def\bP{{\Bbb P}}
+\def\D{{\Bbb D}}
+\def\A{{\Bbb A}}
+\def\C{{\Bbb C}}
+\def\N{{\Bbb N}}
+\def\Q{{\Bbb Q}}
+\def\F{{\Bbb F}}
+\def\P{\mathbb{P}}
+
+\def\inv{^{-1}}
+\def\End{\text{End}}
+\def\Hom{\text{Hom}}
+\def\supp{\text{supp}\,}
+\def\Div{\operatorname{Div}}
+\def\ord{\text{ord}\,}
+\def\det{\text{det}\,}
+\def\Step{\text{Step}\,}
+\def\trunc{\text{Trunc}\,}
+\def\ker{\text{ker}}
+\def\Ker{\text{Ker}}
+\def \oQ {{\overline\Q}}
+\def \fQ {{\frak Q}}
+\def \OoQ {{\cal O}_{\oQ_p}}
+\def\bx {{\bf x}}
+\def\by{{\bf y}}
+\def\Tr{\operatorname{Tr}}
+\def\GL{\operatorname{GL}}
+\def\SL{\operatorname{SL}}
+\def\parx{\partial_X}
+\def\pary{\partial_Y}
+\def\dlog{\operatorname{dlog}}
+\def\Sym{\operatorname{Sym}}
+\def\Aut{\operatorname{Aut}}
+\def\dist{\widetilde{\cD}_{poly}}
+\def\Symb{\operatorname{Symb}}
+\def\Stab{\operatorname{Stab}}
+\def\Meas{\operatorname{Meas}}
+\def\Real{\operatorname{Re}}
+\def\bAV{\mathbb{A}_{V,f}}
+\def\GL{\operatorname{GL}}
+\def\Olog{\Omega_{\text{log}}}
+\def\sign{\operatorname{sign}}
+\def\Res{\operatorname{Res}}
+\def\hill{\sigma_{\text{Hill}}}
+\def\Supp{\operatorname{Support}}
+\def\bs{\mathbf{s}}
+\def\bx{\mathbf{x}}
+\def\br{\mathbf{r}}
+\def\bv{\mathbf{v}}
+\def\bw{\mathbf{w}}
+\def\cW{\mathcal{W}}
+\def\F{{\Bbb F}}
+\def\P{\mathbb{P}}
+\def\cP{\mathcal{P}}
+\def\Norm{\operatorname{N}}
+\def\LC{\mathcal{LC}}
+\def\LP{\mathcal{LP}}
+\def\LA{\mathcal{LA}}
+\def\Symm{\operatorname{Sym}}
+\def\Funct{\operatorname{Funct}}
+\def\res{\operatorname{res}}
+\def\sgn{\operatorname{sgn}}
+\def\Coeff{\operatorname{Coeff}}
+\def\Span{\operatorname{Span}}
+\def\Frac{\operatorname{Frac}}
+\def\cH{\mathcal{H}}
+\def\cZ{\mathcal{Z}}
+\def\bD{\mathbf{D}}
+
+\def\PGL{\operatorname{PGL}}
+\def\wt{\operatorname{wt}}
+\def\ev{\operatorname{ev}}
+\def\fpv{f^{\prime\vee}}
+\def\CoInd{\operatorname{CoInd}}
+
+\newcommand{\insertpic}[2][0.4]{\begin{center}\includegraphics*[scale=0.30]{#2}\end{center}}
+\topmargin -0.4in
+\textwidth 6.5in
+\textheight 9 in
+
+\hoffset=-.55in
+\voffset=-0.05in
+\begin{document}
+\title{Explicit computations of cup products of modular symbols}
+\maketitle
+
+Given a modular symbol $\Phi\in\Symb_\Gamma(M)$, we have $\sigma_\Phi \in H^1_c(\Gamma,M)$ (group actions?) given by
+$$\sigma_\Phi(\alpha) :=\Phi\{r,\alpha r\}$$
+for some choice of cusp $r\in \P^1(\Q)$. Note that different choices of cusps produce cohomologous cocycles.
+Note: It may be easier to use the homogeneous $1$-cocycle $\widetilde{\sigma}_{\Phi}(\alpha,\beta):=\Phi\{\alpha r,\beta r\}$
+
+The image of $\Symb_\Gamma(M)$ in $H^1(\Gamma,M)$ is the parabolic cohomology $H^1_p(\Gamma,M)$. The cup product  $H^1(\Gamma,M)\times H^1(\Gamma,N)\rightarrow H^2(\Gamma,M\otimes N)$ can be described on inhomogeneous cochains $f,g$by
+$$ f\cup g (\alpha,\beta):=f(\alpha)\otimes g(\alpha\beta)$$
+The homogeneous $2$-cocycle is given by
+$$ f\cup g (\alpha,\beta,\gamma):=f(\alpha,\beta) \otimes g(\beta,\gamma)$$
+
+Thus
+$$\widetilde{\sigma}_\Phi \cup \widetilde{\sigma}_\Psi(\alpha,\beta,\gamma)= \Phi\{\alpha r,\beta r\}\otimes\Psi\{\beta r,\gamma r\}$$
+
+There is also a cup product defined on compactly supported cohomology, $H^1_c(\Gamma,M)\times H^1_c(\Gamma,N)\rightarrow H^2_c(\Gamma,M\otimes N)$. According to Hida \ref{}, $H^2_c(\Gamma, M')=H^2_P(\Gamma,M')=Z^2(\Gamma,M')/B_P^2(\Gamma,M')$. [insert explicit description]
+
+\begin{prop}
+Suppose given a $\Z[\Gamma]$ homomorphism $M\otimes N\rightarrow \Q$. The cup product induces a pairing $[~,~] : \Symb_\Gamma(M)\times \Symb_\Gamma(N) \rightarrow \Q$ by
+$$[\Phi,\Psi]=\sum_{\langle \pi\rangle } u(\pi)$$
+where $\partial u= \sigma_\Phi \cup \sigma_\Psi$ and $\langle \pi\rangle $ runs over distinct conjugacy classes of parabolic subgroups.
+\end{prop}
+
+\section{The case of $\SL_2(\Z)$}
+%Let $M$ be a (finite dimensional?) $\Q_p$ vector space with a (left?) action of $\SL_2(\Z)$. We wish to compute, explicitly, the e
+
+\section{Congruence subgroups}
+
+Now we use the results of the previous section to compute the pairing for the congruence subgroups $\Gamma_0(N)$. By Shapiro's lemma, we have
+	$$H^2(\Gamma_0(N),\Q)=H^2(\Gamma_0(1),\CoInd^{\Gamma_0(1)}_{\Gamma_0(N)}\Q)$$
+Here $\CoInd^{\Gamma_0(N)}_{\Gamma_0(1)}\Q=\Hom_{\Z[\Gamma_0(N)]}(\Z[\Gamma_0(1)],\Q)$.
+
+The description of parabolic cochains is a little more subtle when we have a non-trivial action. $H^2_P(G,M):= Z^2(G,M)/B^2_P(G,M)$, where $B_P(G, M)=\{ \delta u : u\in (\gamma-1)\cdot M \text{ for all } \gamma\in P\}$
+
+But we don't even need that. Our strategy is to produce a $1$-chain in $Z^1(\Gamma_0(1),\CoInd)$, then trace down to $Z^1(\Gamma_0(N),\Q)$ and compute the isomorphism there. 
+
+Let $\sigma$ be a $4$-torsion element and $\tau$ a $6$-torsion element. $\sigma=S=\begin{pmatrix} 0 & -1\\ 1 & 0\end{pmatrix}$ and $\tau=ST=\begin{pmatrix} 0 & -1 \\ 1 & 1\end{pmatrix}$
+
+
+\begin{equation*}
+	\delta u(1,1)=u(1), \text{ and } \delta u(-1,-1) =u(-1)+(-1\cdot u(-1))-u(1)=2u(-1)-u(1)
+\end{equation*}
+%In our application, $u(1,1)=0$ and $u(-1,-1)=0$, so we can conclude $u(1)=u(-1)=0$. Actually, I don't know this for certain. In fact, this may not be true for the induced cocycle. But in any case, we know those terms from the above equations. 
+
+\begin{align*}
+\delta u(\sigma,\sigma) &=u(\sigma)+\sigma\cdot u(\sigma)-u(-1)\\
+\end{align*}
+
+\begin{align*}
+\delta u (\tau,\tau) & = u(\tau) +\tau\cdot u(\tau) - u(\tau^2)\\
+\delta u(\tau^2,\tau) & = u(\tau^2) +\tau^2\cdot u(\tau) - u(-1)\\
+\tau\cdot \delta u(\tau^2,\tau) &= \tau\cdot u(\tau^2) + u(\tau) -\tau\cdot u(-1)\\
+\delta u(\tau,\tau^2) & = u(\tau)+\tau\cdot u(\tau^2)- u(-1)
+\end{align*}
+
+Each value is an element of $\CoInd$, which is a finite dimensional $\Q$-vector space. For example, when $\Gamma=\Gamma_0(p)$, $\CoInd^{\Gamma_0(1)}_{\Gamma_0(p)}(\Q)$ is $p+1$ dimensional. 
+$$\tau\cdot( \delta u(\tau,\tau^2) -u(-1)) = \tau\cdot u(\tau)+\tau^2 \cdot u(\tau^2)$$
+$$\tau^{2} \cdot(\delta u(\tau,\tau^2) - u(-1)) =  \tau^{2}\cdot u(\tau) +u(\tau^2)$$
+
+
+
+
+
+
+
+\end{document}
