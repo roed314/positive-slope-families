@@ -220,42 +220,102 @@ where $\partial u= \sigma_\Phi \cup \sigma_\Psi$ and $\langle \pi\rangle $ runs 
 
 
 \section{Congruence subgroups}
+We can use the Corestriction map and the results of the previous section to compute the pairing on congruence subgroups.
+%Now we use the results of the previous section to compute the pairing for the congruence subgroups $\Gamma_0(N)$. By Shapiro's lemma, we have
+%	$$H^2(\Gamma_0(N),\Q)=H^2(\Gamma_0(1),\CoInd^{\Gamma_0(1)}_{\Gamma_0(N)}\Q)$$
+%Here $\CoInd^{\Gamma_0(N)}_{\Gamma_0(1)}\Q=\Hom_{\Z[\Gamma_0(N)]}(\Z[\Gamma_0(1)],\Q)$.
+%
+%The description of parabolic cochains is a little more subtle when we have a non-trivial action. $H^2_P(G,M):= Z^2(G,M)/B^2_P(G,M)$, where $B_P(G, M)=\{ \delta u : u\in (\gamma-1)\cdot M \text{ for all } \gamma\in P\}$
+%
+%But we don't even need that. Our strategy is to produce a $1$-chain in $Z^1(\Gamma_0(1),\CoInd)$, then trace down to $Z^1(\Gamma_0(N),\Q)$ and compute the isomorphism there. 
+%
+%Let $\sigma$ be a $4$-torsion element and $\tau$ a $6$-torsion element. $\sigma=S=\begin{pmatrix} 0 & -1\\ 1 & 0\end{pmatrix}$ and $\tau=ST=\begin{pmatrix} 0 & -1 \\ 1 & 1\end{pmatrix}$
+%
+%
+%\begin{equation*}
+%	\delta u(1,1)=u(1), \text{ and } \delta u(-1,-1) =u(-1)+(-1\cdot u(-1))-u(1)=2u(-1)-u(1)
+%\end{equation*}
+%%In our application, $u(1,1)=0$ and $u(-1,-1)=0$, so we can conclude $u(1)=u(-1)=0$. Actually, I don't know this for certain. In fact, this may not be true for the induced cocycle. But in any case, we know those terms from the above equations. 
+%
+%\begin{align*}
+%\delta u(\sigma,\sigma) &=u(\sigma)+\sigma\cdot u(\sigma)-u(-1)\\
+%\end{align*}
+%
+%\begin{align*}
+%\delta u (\tau,\tau) & = u(\tau) +\tau\cdot u(\tau) - u(\tau^2)\\
+%\delta u(\tau^2,\tau) & = u(\tau^2) +\tau^2\cdot u(\tau) - u(-1)\\
+%\tau\cdot \delta u(\tau^2,\tau) &= \tau\cdot u(\tau^2) + u(\tau) -\tau\cdot u(-1)\\
+%\delta u(\tau,\tau^2) & = u(\tau)+\tau\cdot u(\tau^2)- u(-1)
+%\end{align*}
+%
+%Each value is an element of $\CoInd$, which is a finite dimensional $\Q$-vector space. For example, when $\Gamma=\Gamma_0(p)$, $\CoInd^{\Gamma_0(1)}_{\Gamma_0(p)}(\Q)$ is $p+1$ dimensional. 
+%$$\tau\cdot( \delta u(\tau,\tau^2) -u(-1)) = \tau\cdot u(\tau)+\tau^2 \cdot u(\tau^2)$$
+%$$\tau^{2} \cdot(\delta u(\tau,\tau^2) - u(-1)) =  \tau^{2}\cdot u(\tau) +u(\tau^2)$$
+%
 
-Now we use the results of the previous section to compute the pairing for the congruence subgroups $\Gamma_0(N)$. By Shapiro's lemma, we have
-	$$H^2(\Gamma_0(N),\Q)=H^2(\Gamma_0(1),\CoInd^{\Gamma_0(1)}_{\Gamma_0(N)}\Q)$$
-Here $\CoInd^{\Gamma_0(N)}_{\Gamma_0(1)}\Q=\Hom_{\Z[\Gamma_0(N)]}(\Z[\Gamma_0(1)],\Q)$.
+\section{Pairings on coefficient modules}
 
-The description of parabolic cochains is a little more subtle when we have a non-trivial action. $H^2_P(G,M):= Z^2(G,M)/B^2_P(G,M)$, where $B_P(G, M)=\{ \delta u : u\in (\gamma-1)\cdot M \text{ for all } \gamma\in P\}$
+We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M\times M \longrightarrow \Q_p$ (or another trial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
 
-But we don't even need that. Our strategy is to produce a $1$-chain in $Z^1(\Gamma_0(1),\CoInd)$, then trace down to $Z^1(\Gamma_0(N),\Q)$ and compute the isomorphism there. 
+\subsection{$\Sym^k(\Q_p^2)$}
 
-Let $\sigma$ be a $4$-torsion element and $\tau$ a $6$-torsion element. $\sigma=S=\begin{pmatrix} 0 & -1\\ 1 & 0\end{pmatrix}$ and $\tau=ST=\begin{pmatrix} 0 & -1 \\ 1 & 1\end{pmatrix}$
-
-
+We identify $\Sym^k(\Q_p^2)$ with $\Q_p[X,Y]_k$, and endow it with left action of $\GL_2(\Q)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
+\begin{defn}
+Define a bilinear pairing on $\Sym^k(\Q_p^2)$ by
 \begin{equation*}
-	\delta u(1,1)=u(1), \text{ and } \delta u(-1,-1) =u(-1)+(-1\cdot u(-1))-u(1)=2u(-1)-u(1)
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle = \begin{cases} (-1)^i {k \choose i} & \text{ if } i+j=k\\
+												0	& \text{ otherwise} \end{cases}
 \end{equation*}
-%In our application, $u(1,1)=0$ and $u(-1,-1)=0$, so we can conclude $u(1)=u(-1)=0$. Actually, I don't know this for certain. In fact, this may not be true for the induced cocycle. But in any case, we know those terms from the above equations. 
-
-\begin{align*}
-\delta u(\sigma,\sigma) &=u(\sigma)+\sigma\cdot u(\sigma)-u(-1)\\
-\end{align*}
-
-\begin{align*}
-\delta u (\tau,\tau) & = u(\tau) +\tau\cdot u(\tau) - u(\tau^2)\\
-\delta u(\tau^2,\tau) & = u(\tau^2) +\tau^2\cdot u(\tau) - u(-1)\\
-\tau\cdot \delta u(\tau^2,\tau) &= \tau\cdot u(\tau^2) + u(\tau) -\tau\cdot u(-1)\\
-\delta u(\tau,\tau^2) & = u(\tau)+\tau\cdot u(\tau^2)- u(-1)
-\end{align*}
-
-Each value is an element of $\CoInd$, which is a finite dimensional $\Q$-vector space. For example, when $\Gamma=\Gamma_0(p)$, $\CoInd^{\Gamma_0(1)}_{\Gamma_0(p)}(\Q)$ is $p+1$ dimensional. 
-$$\tau\cdot( \delta u(\tau,\tau^2) -u(-1)) = \tau\cdot u(\tau)+\tau^2 \cdot u(\tau^2)$$
-$$\tau^{2} \cdot(\delta u(\tau,\tau^2) - u(-1)) =  \tau^{2}\cdot u(\tau) +u(\tau^2)$$
+and extending via linearity.
+\end{defn}
 
 
+\begin{lem}
+For all $\gamma\in \GL_2(\Q)$, $P,Q\in\Sym^k(\Q_p^2)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
+\end{lem}
+\begin{proof}
+This can be seen via an ugly computation. (There should be an easy way to see this in terms of the wedge product).
+\end{proof}
+
+For the purposes of Hecke-equivariance, we define a twisted pairing using the Atkin-Lehner involution $W_N = \begin{pmatrix} 0 & -1 \\ N & 0 \end{pmatrix}$.
+\begin{defn}
+The twisted pairing on $\Sym^k(\Q_p^2)$ is defined by
+\begin{equation}
+	\langle P, Q\rangle^t := \langle P, W_N \cdot Q\rangle.
+\end{equation}
+\end{defn}
+More explicitly,
+\begin{equation*}
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle_N^t = \langle X^i Y^{k-i}, (-Y)^j(NX)^{k-j}\rangle= \begin{cases} (-1)^k N^i {k \choose i} & \text{ if } i=j\\
+												0	& \text{ otherwise} \end{cases}
+\end{equation*}
 
 
+\section{$\cD_k$}
+We can view $\Sym^k(\Q_p^2)$ as a quotient of $\cD_k$, and the pairings from the previous section extends uniquely in a $\Sigma_0(p)$-equivariant way to $\cD_k$. Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
+
+\begin{defn}
+Let $\langle~,~\rangle^t_N : \cD_k\times\cD_k\longrightarrow \Q_p$ be the $\Q_p$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t := \sum_{n=0}^\infty {k \choose n} (Np)^n \mu(z^n)\nu(z^n)
+\end{equation}
+\end{defn}
 
 
+\section{$\cD(\Lambda)$}
+
+\begin{defn}
+Let $\langle ~, ~\rangle^t_N :\cD(\Lambda)\times\cD(\Lambda) \longrightarrow \Lambda$ be the $\Lambda$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t = \sum_{n=0}^\infty {\frac{\log_p(1+pw)}{\log_p(1+p)} \choose n} (Np)^n \mu(z^n)\nu(z^n).
+\end{equation}
+\end{defn}
+
+\begin{lem}
+The above pairing interpolates the weight-$k$ twisted pairings, and satisfies the following equivariance property: for all $\gamma \Gamma_0(p)$, $\mu,\nu\in \cD(\Lambda)$, 
+\begin{equation}
+	\langle \mu | \gamma, \nu\rangle_N^t  = \langle \mu, \nu| W_{Np}^{-1}\gamma^* W_{Np}\rangle_N^t.
+\end{equation}	
+\end{lem}
 
 \end{document}
