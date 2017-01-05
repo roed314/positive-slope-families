@@ -1,0 +1,268 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsxtra}
+
+\newtheorem{thm}{Theorem}[section]
+
+\newtheorem{fact}{Fact}[thm]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{thmA}{Theorem A}
+\newtheorem*{thmB}{Theorem B}
+\newtheorem*{thmC}{Theorem C}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{claim}{Claim}
+\newtheorem{exam}[thm]{Example}
+
+\def\image{\text{Im}}
+\def\And{\quad\hbox{ and }\quad}
+\def\cc{completely continuous\ }
+\def\ccly{completely continuously\ }
+\def\fg{{\frak g}}
+\def\fn{{\frak n}}
+\def\ft{{\frak t}}
+\def\fb{{\frak b}}
+\def\fU{{\frak U}}
+\def\Gal{\operatorname{Gal}}
+
+\def\lra{\longrightarrow}
+
+\def\bA{\mathbb{A}}
+\def\cA{{\mathcal A}}
+\def\fA{{\frak A}}
+\def\cB{{\mathcal B}}
+\def\cC{{\mathcal C}}
+\def\tcC{{\widetilde{\cal C}}}
+\def\cD{{\mathcal D}}
+\def\Dist{\hbox{Dist}}
+\def\cE{{\mathcal E}}
+\def\fD{{\frak D}}
+\def\cR{{\mathcal R}}
+\def\tR{{\frak R}}
+\def\tF{{\frak F}}
+\def\cG{\mathcal{G}}
+\def\bG{\mathbb{G}}
+\def\tJ{{\frak J}}
+\def\tC{{\frak C}}
+\def\cF{{\mathcal F}}
+\def\cK{{\mathcal K}}
+\def\tK{{\widetilde{\cal K}}}
+\def\cS{{\mathcal S}}
+\def\dV{{(V^\ast)}}
+\def\fI{{\frak I}}
+\def\fS{\frak S}
+\def\cT{\mathcal{T}}
+\def\fp{\frak p}
+\def\cP{\mathcal{P}}
+\def\fP{\frak P}
+\def\fH{{\frak H}}
+\def\cL{{\mathcal L}}
+\def\cM{{\mathcal M}}
+\def\cO{\mathcal{O}}
+\def\cU{\mathcal{U}}
+\def\cV{\mathcal{V}}
+\def\bX{\mathbb{X}}
+\def\cX{{\mathcal X}}
+\def\Z{{\Bbb Z}}
+\def\R{{\Bbb R}}
+\def\B{{\mathbb{B}}}
+\def\bP{{\Bbb P}}
+\def\D{{\Bbb D}}
+\def\A{{\Bbb A}}
+\def\C{{\Bbb C}}
+\def\N{{\Bbb N}}
+\def\Q{{\Bbb Q}}
+\def\F{{\Bbb F}}
+\def\P{\mathbb{P}}
+
+\def\inv{^{-1}}
+\def\End{\text{End}}
+\def\Hom{\text{Hom}}
+\def\supp{\text{supp}\,}
+\def\Div{\operatorname{Div}}
+\def\ord{\text{ord}\,}
+\def\det{\text{det}\,}
+\def\Step{\text{Step}\,}
+\def\trunc{\text{Trunc}\,}
+\def\ker{\text{ker}}
+\def\Ker{\text{Ker}}
+\def \oQ {{\overline\Q}}
+\def \fQ {{\frak Q}}
+\def \OoQ {{\cal O}_{\oQ_p}}
+\def\bx {{\bf x}}
+\def\by{{\bf y}}
+\def\Tr{\operatorname{Tr}}
+\def\GL{\operatorname{GL}}
+\def\SL{\operatorname{SL}}
+\def\parx{\partial_X}
+\def\pary{\partial_Y}
+\def\dlog{\operatorname{dlog}}
+\def\Sym{\operatorname{Sym}}
+\def\Aut{\operatorname{Aut}}
+\def\dist{\widetilde{\cD}_{poly}}
+\def\Symb{\operatorname{Symb}}
+\def\Stab{\operatorname{Stab}}
+\def\Meas{\operatorname{Meas}}
+\def\Real{\operatorname{Re}}
+\def\bAV{\mathbb{A}_{V,f}}
+\def\GL{\operatorname{GL}}
+\def\Olog{\Omega_{\text{log}}}
+\def\sign{\operatorname{sign}}
+\def\Res{\operatorname{Res}}
+\def\hill{\sigma_{\text{Hill}}}
+\def\Supp{\operatorname{Support}}
+\def\bs{\mathbf{s}}
+\def\bx{\mathbf{x}}
+\def\br{\mathbf{r}}
+\def\bv{\mathbf{v}}
+\def\bw{\mathbf{w}}
+\def\cW{\mathcal{W}}
+\def\F{{\Bbb F}}
+\def\P{\mathbb{P}}
+\def\cP{\mathcal{P}}
+\def\Norm{\operatorname{N}}
+\def\LC{\mathcal{LC}}
+\def\LP{\mathcal{LP}}
+\def\LA{\mathcal{LA}}
+\def\Symm{\operatorname{Symm}}
+\def\Funct{\operatorname{Funct}}
+\def\res{\operatorname{res}}
+\def\sgn{\operatorname{sgn}}
+\def\Coeff{\operatorname{Coeff}}
+\def\Span{\operatorname{Span}}
+\def\Frac{\operatorname{Frac}}
+\def\cH{\mathcal{H}}
+\def\cZ{\mathcal{Z}}
+\def\bD{\mathbf{D}}
+\def\Fil{\operatorname{Fil}}
+
+\def\PGL{\operatorname{PGL}}
+\def\wt{\operatorname{wt}}
+\def\ev{\operatorname{ev}}
+
+
+\begin{document}
+\title{Computing (non-ordinary) families of modular symbols}
+\author{Robert Harron, David Roe, Ander Steele}
+
+
+\maketitle
+\section{Introduction}
+\subsection{Overconvergent modular symbols}
+\subsection{Families of modular symbols}
+For each open disk $U\subset\cW$ in weight space, write $\Lambda_U$ for the $\Z_p$-module of rigid analytic functions on $U$ that are bounded above by $1$. The set $\Lambda_U$ is. the unit ball of the Banach space of bounded analytic functions on $U$. Concretely, if $w$ is a parameter on $U$, $\Lambda_U=\Z_p[[u]]$. 
+
+A family of distributions over $U$ is an element of the (Frechet space?) $D\widehat{\otimes}\Lambda_U$. For each weight $\kappa\in U$, the map ``evaluation at $\kappa$" induces a $\Sigma_0(p)$-homomorphism $D\widehat{\otimes}\Lambda_U\rightarrow D_k$. For our purposes, we can take $D=\bD=D[\Z_p,1]$, the rigid analytic distributions of radius $1$ on $\Z_p$. 
+
+Fixing an arithmetic group $\Gamma$ of tame level $N$, write $\Gamma_0:=\Gamma\cap\Gamma_0(p)$. Our primary object of interest will be the (Banach space) $\Symb_{\Gamma_0}(\bD\widehat{\otimes}\Lambda_U)$ of overconvergent modular symbols over $U$. We will adopt a similar notational shorthand to that of \cite{Robs}, writing $X_U:=\Symb_{\Gamma_0}(\bD\widehat{\otimes}\Lambda_U)$, or simply $X$ when $U$ has been fixed. 
+
+
+\section{Algorithms for non-ordinary families}
+Using the algorithms of \cite{Robs}, we can form random modular symbols approximating elements of $X_U$ and compute the action of $U_p$. For each slope $h\geq 0$, the subspace $X_U^{\leq h}$ on which $U_p$ acts by slope $\leq h$ is a finite-dimensional subspace, and the characteristic polynomial $P_{U,\leq h}=\det(X-U_p|X_U^{\leq h})$ is an element of $\Lambda_U[X]$. One can compute an approximation of $P_{U,\leq h}$ --i.e. a  polynomial $P$ in $\Lambda_U/\frak{m}^M[X]$-- by projecting sufficiently many random modular symbols onto the slope $\leq h$ space to generate a basis, apply $U_p$ on each basis element, and performing Gauss-Jordan elimination over $\Lambda_U$. This last step presents a significant computational hurdle, as $\Lambda_U$ is not a PID!
+
+Supposing we could efficiently perform linear algebra over $\Lambda_U$, we would run into another problem when trying to find the $U_p$-eigenvalue of a \emph{particular} eigensymbol of slope $\leq h$: namely, we would have to factor polynomials over the ring $\Lambda_U$. Of course, we only have approximations of the coefficients. (Say something about Hensel-lifting roots? Is $\Lambda_U$ Henselian?)
+
+We propose an alternate framework for computing families which avoids linear algebra and factorization over $\Lambda_U$. The idea is to specialize our basis of families $\{\Phi_1,\ldots,\Phi_d\}$ to classical weights $k$, compute the eigenvalues of an eigen-basis $\{a_p(k)^1,\ldots,a_p(k)^d\}$ of $U_p$ at each classical weight, and then interpolate (via Lagrange interpolation) each system of eigenvalues into a polynomial approximation of $a_p\in \Lambda_U$. Of course, one has to match eigenvalues of a particular family across various weights. In order to index the weight-$k$ eigenvalues, we compute the $\pmod p$ eigenvalues of $T_q$ for sufficiently many tame Hecke operators $T_q$ and index the eigenforms by these Tame eigenvalues.
+
+
+
+%
+%By restricting to finite-slope subspaces $H^1_c(\bD^0_k\otimes \Lambda_U)$In order to compute an approximation of the characteristic power series of $U_p| H^1_c(\bD^0_k\otimes \Lambda_U)^{\leq h}$
+\subsection{Slope-$h$ projectors}
+Let us suppose, for now, that we have a modular symbol $\Phi\in X^{\geq h}$. We want to project $\Phi$ onto $X^{=h}$. The basic idea is to apply the operator $U_p/p^h$ enough times that, relative to our precision, the slope $>h$ parts vanish. Question: Can we apply $U_p/p^h$ without losing precision?
+
+For now, let us assume $h=1$, and that we have $\Phi\in X^{\geq 1}/\Fil^n$. Equation (4) of Pollack-Stevens 
+
+
+
+
+
+
+As we specialize to various classical weights, the dimension of the classical modular symbols $X_k^{\leq k+1}$ grows (linearly?) with $k$. Performing the necessary computations in a fixed slope subspace allows us to keep the dimension constant.
+
+The projection onto a given slope subspace is inspired by Hida's ordinary projector $\lim_{n\rightarrow\infty} U_p^{n!}$. We analyze the convergence of $\lim_{n\rightarrow} U_p^{n!}$ on $X_k/Fil^M$.
+
+{\bf Hypothesis:} $U_p$ acts semi-simply on $X_k^{<k+1}$. 
+\begin{rem}
+If $k=0$, this follows from a sharpening of the Ramanujan bound $|a_p|\leq 2\sqrt{p}$ to a strict inequality. Coleman and Edixhoven show that semi simplicity in general weight follows from the Tate conjecture.
+\end{rem}
+
+Suppose that we have found a basis of slope $h$ modular symbols $\Phi_1,\ldots,\Phi_d\in X_k^{=h}$. We view a linear equation
+\begin{equation}
+	x_1\Phi_1+\cdots+x_d\Phi_d = \Phi,
+\end{equation}
+as a system of equations in the moments of $\Phi_i$, $\Phi$. Evaluating the above expression at a fixed divisor and on the function $z^n$, we get
+\begin{equation}
+	x_1\Phi(D)(z^n)+\cdots +x_d\Phi_d(D)z^n=\Phi(D)(z^n).
+\end{equation}
+Does this uniquely determine the $x_i$? No. If $\Phi_i(D)(z^n)$ are all non-zero, then maybe? We can use the fact that an $h$-tempered distribution is uniquely determined by its moments on $[a+p^m]z^0,\ldots,a+p^m]z^n$ for $n\leq h$ and arbitrary $a, m$.
+
+If we get a system of equations that has a unique solution, then the unique solution is the one we're looking for. But we can't guarantee this by evaluating on one divisor and one moment. We should really be looking at \emph{all} divisors and \emph{all moments} of degree $\leq h$. Not a problem.
+
+
+
+By Stevens' classicality theorem, we can view our computations through the optic of classical modular symbols. 
+\begin{prop}
+Suppose the slopes that occur in $X_k$ are $0< h<\cdots$ and $h<k+1$. Then $\rho_k(X_k^o/Fil^M |U_p^{[M/h]}) \subset \rho_k(X_k^o/Fil^M)^{ord}$.
+\end{prop}
+\begin{proof}
+Let $\Phi\in X_k$ be an arbitrary overconvergent modular symbol. Specializing $\Phi$ to a classical symbol 
+\end{proof}
+
+\begin{rem}
+What is the filtration on classical modular symbols? It should be the same filtration, with the moments truncated after weight.
+\end{rem}
+\begin{rem}
+Here we have restricted ourselves to integral modular symbols, but our random modular symbols may not
+\end{rem}
+
+\begin{rem}
+What was our recipe for producing symbols in the slope $\geq 1$ subspace? Can we do this without loss of precision?
+\end{rem}
+
+\subsection{Interpolating eigenvalues}
+In this section we describe an effective method for indexing eigenfamilies via the tame Hecke operators $T_q$.
+
+\begin{rem}
+Lagrange interpolation will require denominators highly divisible by $p$!. Indeed, if $k_0,\ldots,k_n$ are the points at which we're interpolating, and they have pairwise differences exactly divisible by $p^r$, then the denominator of the Lagrange polynomials is, at the worst, $p^{rn}$. In order to compute $P$ modulo $\frak{m}^M$, we need $M$ points, which we can pick from $M$ residue disks of radius $p^{-[\log_p(M)]}$.
+
+
+{\bf Q:} What is the smallest denominator we can get away with? 
+Thus we need to compute each value to precision $p^{M+rn}$ if we want to compute $P_{U,\leq h}(T) \pmod{\frak{m}^M}$. Of course, the bigger $n$, the bigger $r$ becomes, which also forces us to work in high weight.
+\end{rem}
+
+\section{Examples:}
+\subsection{Non-ordinary families on large disks}
+
+\subsection{$\mathcal{L}$-invariants}
+
+\subsection{Weight-$1$ modular forms}
+
+%\section{Outline: Slope $1$}
+%We want to produce the $U_p$-eigenvalue of an eigensymbol $\Phi\in H^1_c(\Gamma_0, \cD( \Lambda))$ (or maybe $\bD^o\widehat{\otimes}\Lambda$?). This $a_p(t)$ will be an element of $\Z_p[[t]]$, where $t$ is a parameter for our disk.
+%
+%Let's suppose we've chosen our disk $\Omega=\operatorname{Sp}(\Lambda)$ so that the lowest slopes are $0,1,\ldots$, and that the slope $1$ subspace has constant dimension over each of the specializations $H^1_c(\Gamma_0,\Sym^{k}(\Q_p^2))$. Because the dimension of the slope $1$ subspace is constant over our disk, we can compute it by specializing to a small classical weight, computing the Newton polygon of  the characteristic polynomial of $U_p$ on classical modular symbols. Denote by $d$ the dimension of the slope $1$ subspace of $H^1_c(\Gamma_0,\Sym^{k}(\Q_p^2))$ for some small, classical $k$. 
+%
+%There exist $d$ eigensymbols $\{\Phi_1,\ldots,\Phi_d\}$ in the slope $1$ subspace of $H^1_c(\cD(\Lambda))$. If we want to compute $a_p(\Phi_j) \pmod{p^M,t^L}$, then we can specialize to $L+1$ classical weights, compute the $U_p$ eigenvalues to precision $p^M$, and, if we can match our list of eigenvalues to a family, this will allow us to find $d$ polynomials which approximate the power series $a_p(\Phi_j)$.
+%
+%In order to make this work, we need to be able to quickly compute lists of overconvergent eigensymbols at our various weights $k$. One possible strategy is to generate sufficiently many random modular symbols, then diagonalize with respect to $U_p$ and our finitely many auxiliary primes $q$. 
+%
+%
+%The basic strategy is to find \emph{eigensymbols} $\{\Phi_1,\ldots,\Phi_d\}$ in the slope $1$ subspace of $H^1_c(\cD_k)$ (or $H^1_c(\Sym^{k}(\Q_p^2))$) for many values of $k$ in our disk. We will have computed $a_p(\Phi_d)(k) \pmod{p^M}$ and, for at least $d$ other primes $q$, $a_q(\Phi_d)(k) \pmod{p}$. The auxiliary primes $q$ will allow us to identify which family the values $a_p(\Phi_j)(k)$ belong to, for various $k,j$. Once we've matched our $d$ symbols at various weights to $d$ families, we can easily produce polynomials in $\Z_p/p^M[t]$ which are congruent to $a_p(t) \pmod{p^M,t^L}$.
+%
+%{\bf Q}: How many times do we need to apply each projector $U_p/\lambda$? 
+%{\bf Guess:} M times, for precision $p^M$. 
+%
+%For a fixed weight $k$, consider an arbitrary overconvergent modular symbol $\Phi\in H^1_c(\bD_k^0)$. 
+
+\end{document}
