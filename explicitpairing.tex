@@ -179,7 +179,7 @@
 \voffset=-0.05in
 \begin{document}
 \title{Explicit computations of cup products of modular symbols}
-\authors{David Roe, Ander Steele}
+
 \maketitle
 
 
@@ -196,12 +196,15 @@ $$ f\cup g (\alpha,\beta,\gamma):=f(\alpha,\beta) \otimes g(\beta,\gamma)$$
 Thus
 $$\widetilde{\sigma}_\Phi \cup \widetilde{\sigma}_\Psi(\alpha,\beta,\gamma)= \Phi\{\alpha r,\beta r\}\otimes\Psi\{\beta r,\gamma r\}$$
 
-There is also a cup product defined on compactly supported cohomology, $H^1_c(\Gamma,M)\times H^1_c(\Gamma,N)\rightarrow H^2_c(\Gamma,M\otimes N)$. According to Hida \ref{}, $H^2_c(\Gamma, M')=H^2_P(\Gamma,M')=Z^2(\Gamma,M')/B_P^2(\Gamma,M')$. [insert explicit description]
-
+There is also a cup product defined on compactly supported cohomology, $H^1_c(\Gamma,M)\times H^1_c(\Gamma,N)\rightarrow H^2_c(\Gamma,M\otimes N)$. According to Hida \ref{}, $H^2_c(\Gamma, M')=H^2_P(\Gamma,M')=Z^2(\Gamma,M')/B_P^2(\Gamma,M')$, where
+$$
+B^2_P = \{\partial u | u\in C^1(\Gamma, M') \text{ with } u(\pi)\in (\pi-1)M' \text{ for all } \pi\in P\}
+$$
+and $P$ is the union of the stabilizers in $\Gamma$ of the cusps [pg 347 of Hida].
 \begin{prop}
 Suppose given a $\Z[\Gamma]$ homomorphism $M\otimes N\rightarrow \Q$. The cup product induces a pairing $[~,~] : \Symb_\Gamma(M)\times \Symb_\Gamma(N) \rightarrow \Q$ by
 $$[\Phi,\Psi]=\sum_{\langle \pi\rangle } u(\pi)$$
-where $\partial u= \sigma_\Phi \cup \sigma_\Psi$ and $\langle \pi\rangle $ runs over distinct conjugacy classes of parabolic subgroups.
+where $\partial u= \sigma_\Phi \cup \sigma_\Psi$ and $\langle \pi\rangle $ runs over distinct conjugacy classes of parabolic subgroups. [Are we sure about this? Hida describes $P$ differently
 \end{prop}
 
 \section{The case of $\SL_2(\Z)$}
