@@ -62,6 +62,9 @@
 \DeclareMathOperator{\PGL}{PGL}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Symb}{Symb}
+\DeclareMathOperator{\Hh}{H}
+\DeclareMathOperator{\cor}{cor}
+
 
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
@@ -76,14 +79,18 @@
 
 Let $E$ be a complete, discrete valued field.  \todo{think about what works in characteristic $p$}
 
-\section{Cohomology of Modular Curves}
+\section{Cohomology of Modular Curves} \label{sec:mod_curve_cohom}
 % Reference appendix to Hida's Elementary Theory of L-functions and Eisenstein Series
+\begin{align*}
+\sigma_{\Phi}(\alpha, \beta) &= \Phi(\{\alpha \cdot \infty, \beta \cdot \infty\}) \\
+\sigma_{\Psi}(\alpha, \beta) &= \Psi(\{\alpha \cdot \infty, \beta \cdot \infty\}).
+\end{align*}
 
-\section{Existing Pairings on Modular Symbols}
+\section{Existing Pairings on Modular Symbols} \label{sec:existing_pairings}
 % Reference discussions of pairings in Bellaiche and Kim's thesis
 % Relate to Petersson inner product
 
-\section{Pairings on Coefficient Modules}
+\section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
 
 We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
 
@@ -120,8 +127,18 @@ More explicitly,
 												0	& \text{ otherwise} \end{cases}
 \end{equation*}
 
-\section{Reducing to Level 1}
+\section{Reducing to Level 1} \label{sec:level_one}
 
-\section{Application to Adjoint $L$-functions}
+Suppose that $\Phi, \Psi \in \Symb_{\Gamma_0(N)}(M)$ are overconvergent modular symbols.  As in Section \ref{sec:mod_curve_cohom}, we associate to them homogeneous $1$-cocycles in $Z^1(\Gamma_0(N), M)$ by the following formulas:
+\begin{align*}
+\sigma_{\Phi}(\alpha) &= \Phi(\{\infty, \alpha \cdot \infty\}) \\
+\sigma_{\Psi}(\beta) &= \Psi(\{\alpha \cdot \infty, \alpha \cdot \beta \cdot \infty\}).
+\end{align*}
+%f(\alpha) \otimes g(\alpha \cdot \beta)
+The pairing $M \times M \to E$ from Section \ref{sec:coeff_pairing} then induces a natural cup product pairing $\Hh^1_P(\Gamma_0(N), M) \times \Hh^1_P(\Gamma_0(N), M) \to \Hh^2_P(\Gamma_0(N), E)$.  In order to compute this pairing, we need to give an explicit isomorphism $\Hh^2_P(\Gamma_0(N), E) \to E$, which we do in two steps.
+
+First, the corestriction map $\cor : \Hh^2(\Gamma_0(N), E) \to \Hh^2(\SL_2(\ZZ), E)$ is given by multiplication by $[\SL_2(\ZZ) : \Gamma_0(N)]$.  
+
+\section{Application to Adjoint $L$-functions} \label{sec:adjoint}
 
 \end{document}
