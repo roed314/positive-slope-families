@@ -57,6 +57,12 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\ord}{ord}
 
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Symb}{Symb}
+
 
 %%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%
 \usepackage{todonotes}
@@ -66,7 +72,9 @@
 
 \section{Introduction}
 
-\section{Reviews}
+\section{Review}
+
+Let $E$ be a complete, discrete valued field.  \todo{think about what works in characteristic $p$}
 
 \section{Cohomology of Modular Curves}
 % Reference appendix to Hida's Elementary Theory of L-functions and Eisenstein Series
@@ -76,6 +84,41 @@
 % Relate to Petersson inner product
 
 \section{Pairings on Coefficient Modules}
+
+We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
+
+\subsection{$\Sym^k(E^2)$}
+
+We identify $\Sym^k(E^2)$ with $E[X,Y]_k$, and endow it with left action of $\GL_2(\QQ)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
+\begin{definition}
+Define a bilinear pairing on $\Sym^k(E^2)$ by
+\begin{equation*}
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle = \begin{cases} (-1)^i {k \choose i} & \text{ if } i+j=k\\
+												0	& \text{ otherwise} \end{cases}
+\end{equation*}
+and extending via linearity.
+\end{definition}
+
+
+\begin{lemma}
+For all $\gamma\in \GL_2(\QQ)$, $P,Q\in\Sym^k(E^2)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
+\end{lemma}
+\begin{proof}
+This can be seen via an ugly computation. (There should be an easy way to see this in terms of the wedge product).
+\end{proof}
+
+For the purposes of Hecke-equivariance, we define a twisted pairing using the Atkin-Lehner involution $W_N = \begin{pmatrix} 0 & -1 \\ N & 0 \end{pmatrix}$.
+\begin{definition}
+The twisted pairing on $\Sym^k(E^2)$ is defined by
+\begin{equation}
+	\langle P, Q\rangle^t := \langle P, W_N \cdot Q\rangle.
+\end{equation}
+\end{definition}
+More explicitly,
+\begin{equation*}
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle_N^t = \langle X^i Y^{k-i}, (-Y)^j(NX)^{k-j}\rangle= \begin{cases} (-1)^k N^i {k \choose i} & \text{ if } i=j\\
+												0	& \text{ otherwise} \end{cases}
+\end{equation*}
 
 \section{Reducing to Level 1}
 
