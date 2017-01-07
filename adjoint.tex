@@ -52,6 +52,7 @@
 \newcommand{\QQ}{{\mathbb{Q}}}
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\cH}{\mathcal{H}}
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\Hom}{Hom}
@@ -62,6 +63,7 @@
 \DeclareMathOperator{\PGL}{PGL}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Symb}{Symb}
+\DeclareMathOperator{\BSymb}{BSymb}
 \DeclareMathOperator{\Hh}{H}
 \DeclareMathOperator{\cor}{cor}
 
@@ -81,10 +83,50 @@ Let $E$ be a complete, discrete valued field.  \todo{think about what works in c
 
 \section{Cohomology of Modular Curves} \label{sec:mod_curve_cohom}
 % Reference appendix to Hida's Elementary Theory of L-functions and Eisenstein Series
+%The theory of modular symbols allows us to efficiently compute with spaces of modular forms. We briefly recall 
+
+[Short summary: We compute modular forms through modular symbols. Modular symbols are $H^1_c$, $H^1_p$ is a natural quotient., and our pairings factor through this projection. Thus, all our computations reduce to group cohomology]
+
+
+
+Let $\Gamma$ be a congruence subgroup--in our examples, we will take $\Gamma_0(N)$. Denote by $\Delta_0$ the degree-$0$ divisors on $\mathbb{P}^1(\QQ)$, equipped with the left action of $\Gamma$ by fractional-linear-transformations. Let $M$ be any right $\ZZ[\Gamma]$-module. The space of $M$-valued modular symbols for $\Gamma$ is defined as
+\begin{equation*}
+	\Symb_\Gamma(M) := \Hom_{\ZZ[\Gamma]}(\Delta_0, M).
+\end{equation*}
+
+\begin{proposition}[Ash-Stevens]
+Suppose $\Gamma$ acts invertibly on $\cH$, or $6$ acts invertibly on $M$. Then $H^1_c(\Gamma,M)$ is [canonically and functorially?] isomorphic to $\Symb_\Gamma(M)$.
+%and we have an exact sequence:
+%\begin{equation*}
+%\BSymb_\Gamma(M)\longrightarrow \Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma, M)\longrightarrow 0
+%\end{equation*}
+\end{proposition}
+
+The compactly supported cohomology of the group $\Gamma$ is defined as \todo{do we need this?}
+[Need to distinguish the cohomology of the modular curve and group cohomology, and make precise comparisons... eg. $H^*(\Gamma, M) = H^*(Y, \widetilde{M})$]
+
+%the the compactly supported cohomology of the open modular curve $\Gamma\cH$, with coefficients in the local system blah blah blah.
+
+
+We have a natural map $H^1_c(\Gamma, M)\longrightarrow H^1(\Gamma,M)$, and thus a natural map from $\Symb_\Gamma(M)\longrightarrow H^1(\Gamma,M)$. Concretely, a modular symbol $\Phi\in \Symb_\Gamma(M)$ is mapped to the cohomology class of the cocycle $\sigma_\Phi$ defined by
 \begin{align*}
-\sigma_{\Phi}(\alpha, \beta) &= \Phi(\{\alpha \cdot \infty, \beta \cdot \infty\}) \\
-\sigma_{\Psi}(\alpha, \beta) &= \Psi(\{\alpha \cdot \infty, \beta \cdot \infty\}).
+\sigma_{\Phi}(\alpha, \beta) &= \Phi(\{\alpha \cdot \infty, \beta \cdot \infty\}).% \\
+%\sigma_{\Psi}(\alpha, \beta) &= \Psi(\{\alpha \cdot \infty, \beta \cdot \infty\}).
 \end{align*}
+\begin{definition}
+The parabolic cohomology $H^1_p(\Gamma,M)$ is defined to be the image of the natural map $H^1_c(\Gamma,M)\longrightarrow H^1_p(\Gamma,M)$.
+\end{definition}
+[The kernel of the map $\Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma,M)$ is the subspace of boundary symbols, which we don't need to say anything about]
+
+The connection with modular forms is described by the Eichler-Shimura Isomorphism. For each integer $k\geq 0$, define $V_k:=\Sym^k(\CC^2)\cong \CC[X,Y]_k$. $V_k$ is equipped with a right action of $\Gamma$ by $P(X,Y)|\gamma =P((X,Y)|\gamma^{-1})=P(dX-cY,-bX+aY)$ %see 3.4 of Pollack-Stevens
+\begin{theorem}[Eichler-Shimura]
+There exists a Hecke-equivariant isomorphism
+\begin{equation*}
+	H^1_p(\Gamma, V_k) \cong S_{k+2}(\Gamma)\oplus \overline{S_{k+2}(\Gamma)}
+\end{equation*}
+\end{theorem}
+
+[Replacing the coefficient module $V_k$ by $p$-adic distributions, one obtains an overconvergent Eichler-Shimura isomorphism comparing overconvergent modular symbols with overconvergent modular forms. \cite{Andreatta, Iovita, Stevens}. We probably don't need to say this, but it might motivate the our constructions]
 
 \section{Existing Pairings on Modular Symbols} \label{sec:existing_pairings}
 % Reference discussions of pairings in Bellaiche and Kim's thesis
