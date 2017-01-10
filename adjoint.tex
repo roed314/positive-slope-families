@@ -5,7 +5,7 @@
 \address{Department of Mathematics, University of Pittsburgh, 301 Thackeray Hall, Pittsburgh, PA , United States, 15260.}
 \email{roed.math@gmail.com}
 \author{Ander Steele}
-\address{Department of Mathematics, University of Calfornia Santa Cruz, ADD ADDRESS HERE.}
+\address{Department of Mathematics, University of California Santa Cruz, 1156 High Street, Santa Cruz, CA, United States, 95060}
 \email{gasteele@ucsc.edu}
 
 %\subjclass[2010]{}
@@ -66,6 +66,7 @@
 \DeclareMathOperator{\BSymb}{BSymb}
 \DeclareMathOperator{\Hh}{H}
 \DeclareMathOperator{\cor}{cor}
+\DeclareMathOperator{\ad}{ad}
 
 
 
@@ -131,6 +132,47 @@ There exists a Hecke-equivariant isomorphism
 \section{Existing Pairings on Modular Symbols} \label{sec:existing_pairings}
 % Reference discussions of pairings in Bellaiche and Kim's thesis
 % Relate to Petersson inner product
+The Petersson inner product is a natural Hermitian inner product on $S_{k+2}(\Gamma,\CC)$ defined by:
+\begin{equation*}
+	(f,g) := \int_{\cH/\Gamma} f(z) \overline{g(z)} y^{k} dx dy
+\end{equation*}
+
+[Here we introduce the Rankin product and adjoint $L$-function, and state the relationship between these and Petersson inner product. Roughly $(f,f)=L(\ad f,k+1)$]
+
+The pairing on $V_k$ [where to put this] and the cup product induce a pairing on $H^1_c(V_k)$:
+\begin{equation*}
+	H^1_c(V_k)\times H^1_c(V_k) \longrightarrow H^2_c(V_k\otimes V_k)\longrightarrow H^2_c(\CC)\cong \CC
+\end{equation*}
+
+\begin{proposition}[III.2.6 of Bella\"iche]
+\begin{equation*}
+	(\phi_f,\phi_g ) = (2i)^{k-1}[(f,g) + (-1)^{k+1} (g,f)]
+\end{equation*}
+\end{proposition}
+
+
+[Bella\"iche, section III.2.7]
+Hecke operators: Suppose now that $\Gamma_1(N)\subseteq \Gamma \subseteq \Gamma_0(N)$. Let 
+\begin{equation}
+	W_N = \begin{pmatrix} 0 & -1 \\ N & 0\end{pmatrix}
+\end{equation}
+which normalizes $\Gamma_0(N)$ and (after some work) $\Gamma$. See Lemma III.2.4.
+
+The ``corrected" scalar product:
+\begin{equation*}
+	[f,g] : =(f,g|W)
+\end{equation*}
+
+\begin{lemma}[III.2.26]
+The Hecke operators $T_\ell$ ($\ell\nmid N$, $U_q$ , and $\langle a \rangle$ are self-adjoint with respect to the corrected scalar product:
+\begin{equation*}
+	[f|T,g]=[f,g|T].
+\end{equation*}	
+\end{lemma}
+
+
+
+
 
 \section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
 
