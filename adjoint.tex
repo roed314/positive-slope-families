@@ -53,6 +53,7 @@
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\OK}{\mathcal{O}_K}
 \newcommand{\cH}{\mathcal{H}}
+\newcommand{\cD}{\mathcal{D}}
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\Hom}{Hom}
@@ -67,6 +68,7 @@
 \DeclareMathOperator{\Hh}{H}
 \DeclareMathOperator{\cor}{cor}
 \DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Sp}{Sp}
 
 
 
@@ -119,15 +121,37 @@ The parabolic cohomology $H^1_p(\Gamma,M)$ is defined to be the image of the nat
 \end{definition}
 [The kernel of the map $\Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma,M)$ is the subspace of boundary symbols, which we don't need to say anything about]
 
-The connection with modular forms is described by the Eichler-Shimura Isomorphism. For each integer $k\geq 0$, define $V_k:=\Sym^k(\CC^2)\cong \CC[X,Y]_k$. $V_k$ is equipped with a right action of $\Gamma$ by $P(X,Y)|\gamma =P((X,Y)|\gamma^{-1})=P(dX-cY,-bX+aY)$ %see 3.4 of Pollack-Stevens
-\begin{theorem}[Eichler-Shimura]
-There exists a Hecke-equivariant isomorphism
+
+
+The connection with modular forms is described by the Eichler-Shimura Isomorphism. For each integer $k\geq 0$, define $V_k(\CC):=\Sym^k(\CC^2)\cong \CC[X,Y]_k$. $V_k(\CC)$ is equipped with a right action of $\Gamma$ by $P(X,Y)|\gamma =P((X,Y)|\gamma^{-1})=P(dX-cY,-bX+aY)$. A cuspidal modular form $f\in S_{k+2}(\Gamma)$ gives rise to a modular symbol $\phi_{f}\in \Symb_{\Gamma} (V_k)$ by
 \begin{equation*}
-	H^1_p(\Gamma, V_k) \cong S_{k+2}(\Gamma)\oplus \overline{S_{k+2}(\Gamma)}
+	\phi_{f} \{r, s\} = \int_r^s f(z) (zX+Y)^k dz.
+\end{equation*}
+Let $\iota = \begin{pmatrix} -1 & 0 \\ 0 & 1\end{pmatrix}$, which normalizes $\Gamma$ and hence induces an involution on $H^1_p(\Gamma, V_k(\CC))$ [insert reference] (this involution roughly corresponds to the action of complex conjugation). Thus, $H^1_p(\Gamma, V_k(\CC))$ decomposes into $H^1_p(\Gamma,V_k(\CC))^+\oplus H^1_p(\Gamma,V_k(\CC))^-$, and $\phi_f = \phi_f^+ + \phi_f^-$. 
+
+For each cusp form $f\in S_{k+2}(\Gamma)$, a theorem of Shimura [need ref!] gives complex periods $\Omega_f^\pm$ such that $\phi_f^\pm/\Omega_f^\pm \in \Symb_\Gamma(V_k(\overline{L}))$. Here $L$ is a number field containing the coefficients of the regularized $q$-expansion of $f$.
+%see 3.4 of Pollack-Stevens
+\begin{theorem}[Eichler-Shimura]
+Let $L$ be a number field. The maps $S_{k+2}(\Gamma,L)\longrightarrow H^1_p(\Gamma, V_k(L))^\pm$, $f\mapsto \phi_{f}^\pm$ are isomorphisms of Hecke modules. That is,
+\begin{equation*}
+	H^1_p(\Gamma, V_k(L)) \cong S_{k+2}(\Gamma,L)\oplus \overline{S_{k+2}(\Gamma,L)}
 \end{equation*}
 \end{theorem}
 
+By replacing the vector spaces $V_k(L)$ with (infinite-dimensional) spaces of $p$-adic distributions $\cD_k(L)$, Stevens \cite{Stevens} constructs \emph{overconvergent} modular symbols corresponding to  overconvergent modular forms.
+
 [Replacing the coefficient module $V_k$ by $p$-adic distributions, one obtains an overconvergent Eichler-Shimura isomorphism comparing overconvergent modular symbols with overconvergent modular forms. \cite{Andreatta, Iovita, Stevens}. We probably don't need to say this, but it might motivate the our constructions]
+
+[Insert definitions of coefficient modules]
+
+[Insert theorem on $p$-adic $L$-functions?]
+
+
+
+
+
+
+[Introduce the various coefficient modules here]
 
 \section{Existing Pairings on Modular Symbols} \label{sec:existing_pairings}
 % Reference discussions of pairings in Bellaiche and Kim's thesis
@@ -143,7 +167,7 @@ The pairing on $V_k$ [where to put this] and the cup product induce a pairing on
 \begin{equation*}
 	H^1_c(V_k)\times H^1_c(V_k) \longrightarrow H^2_c(V_k\otimes V_k)\longrightarrow H^2_c(\CC)\cong \CC
 \end{equation*}
-
+Moreover, this cup product pairing is compatible with the Petersson inner product.
 \begin{proposition}[III.2.6 of Bella\"iche]
 \begin{equation*}
 	(\phi_f,\phi_g ) = (2i)^{k-1}[(f,g) + (-1)^{k+1} (g,f)]
@@ -211,6 +235,32 @@ More explicitly,
 												0	& \text{ otherwise} \end{cases}
 \end{equation*}
 
+We can view $\Sym^k(\QQ_p^2)$ as a quotient of $\cD_k$, and the pairings from the previous section extends uniquely in a $\Sigma_0(p)$-equivariant way to $\cD_k$. Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
+
+\begin{definition}
+Let $\langle~,~\rangle^t_N : \cD_k\times\cD_k\longrightarrow \QQ_p$ be the $\QQ_p$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t := \sum_{n=0}^\infty {k \choose n} (Np)^n \mu(z^n)\nu(z^n)
+\end{equation}
+\end{definition}
+
+
+
+
+\begin{definition}
+Let $\langle ~, ~\rangle^t_N :\cD(\Lambda)\times\cD(\Lambda) \longrightarrow \Lambda$ be the $\Lambda$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t = \sum_{n=0}^\infty {\frac{\log_p(1+pw)}{\log_p(1+p)} \choose n} (Np)^n \mu(z^n)\nu(z^n).
+\end{equation}
+\end{definition}
+
+\begin{lemma}
+The above pairing interpolates the weight-$k$ twisted pairings, and satisfies the following equivariance property: for all $\gamma \Gamma_0(p)$, $\mu,\nu\in \cD(\Lambda)$, 
+\begin{equation}
+	\langle \mu | \gamma, \nu\rangle_N^t  = \langle \mu, \nu| W_{Np}^{-1}\gamma^* W_{Np}\rangle_N^t.
+\end{equation}	
+\end{lemma}
+
 \section{Reducing to Level 1} \label{sec:level_one}
 
 Suppose that $\Phi, \Psi \in \Symb_{\Gamma_0(N)}(M)$ are overconvergent modular symbols.  As in Section \ref{sec:mod_curve_cohom}, we associate to them homogeneous $1$-cocycles in $Z^1(\Gamma_0(N), M)$ by the following formulas:
@@ -264,5 +314,33 @@ Now, an arbitrary element of $\SL_2(\ZZ)$ can be decomposed as a word in $R$ and
 to solve for $\kappa(A)$ in terms of $\kappa(R)$, $\kappa(S)$ and values of $\tau$.
 
 \section{Application to Adjoint $L$-functions} \label{sec:adjoint}
+
+[Here we follow Kim's thesis and Bella\"iche's book. Maybe Hida in the ordinary case?]
+
+The main theorem will look like
+\begin{theorem}[Prototype]
+\begin{equation}
+	L^{alg}(\ad f , k-1) = [\Phi_{f}^+,\Phi_{f}^-]
+\end{equation}
+\end{theorem}
+One problem is that $L^{lag}$ is not well-defined---it depends on a choice of complex periods. See Kim, Theorem 3.9.3 for a precise (if suspect!) statement. Note that this only handles the case that $f$ has level $Np^r$ for $r\geq 1$ and non-trivial nebentype. Will need Hida for a reference in the ordinary case, since Bella\"iche is incomplete.
+
+Note: Kim's results seem to require a Gorenstein property of the Hecke algebra. Bella\'iche's construction of $L^{adj}$ is slightly different: $L^{adj}$ is defined as a generator of a canonical ideal $\mathcal{L}^{adj}$ whenever that ideal is principal. A precise relation to Kim's definition (and ours) is given by Bella\"iche Proposition VI.4.5.
+
+\begin{proposition}
+Let $L$ be a finite extension of $\QQ_p$ and let $x\in \mathcal{C}^o(L)$ be a good point [see REF]. Fix $U=\Sp\mathcal{T}$ a sufficiently small clean neighborhood of $x$ [see REF]. Then for every sufficiently small real $r>0$ there exist two real constants $0<c<C$ such that for every point $y\in U$ with $\kappa(y)=w$ one has
+\begin{equation}
+	c| [\Phi_{y}^+, \Phi_y^-]_w | \leq |L^{adj}(y) | \leq C | [\Phi_y^+, \Phi_y^-]_w|,
+\end{equation}
+where $\Phi_{y}^\pm$ are generators of the spaces $H^1_p(\Gamma,\cD_w[r](L))^{\pm}[y]$ such that $||\Phi_y^\pm||_r = 1$. Moreover, the adjoint $p$-adic $L$-function is characterized (up to an element of $\mathcal{T}^\times$) by the above property.
+\end{proposition}
+
+\begin{corollary}
+On a small clean neighborhood of $x$, the zero loci of $L^{alg}$ and $L^{adj}$ coincide.
+\end{corollary}
+
+\begin{remark}
+The above corollary probably extends to the entire ordinary part of the cuspidal eigencurve. See Hida's book or ``Iwasawa modules of congruences of cusp forms".
+\end{remark}
 
 \end{document}
