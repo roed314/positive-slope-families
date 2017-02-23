@@ -53,7 +53,10 @@
 \newcommand{\RR}{{\mathbb{R}}}
 \newcommand{\OK}{\mathcal{O}_K}
 \newcommand{\cH}{\mathcal{H}}
+\newcommand{\cA}{\mathcal{A}}
 \newcommand{\cD}{\mathcal{D}}
+
+
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\Hom}{Hom}
@@ -119,11 +122,15 @@ We have a natural map $H^1_c(\Gamma, M)\longrightarrow H^1(\Gamma,M)$, and thus 
 \begin{definition}
 The parabolic cohomology $H^1_p(\Gamma,M)$ is defined to be the image of the natural map $H^1_c(\Gamma,M)\longrightarrow H^1_p(\Gamma,M)$.
 \end{definition}
-[The kernel of the map $\Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma,M)$ is the subspace of boundary symbols, which we don't need to say anything about]
+The kernel of the map $\Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma,M)$ is the subspace of boundary symbols, which correspond to Eisenstein series. See [Bellaiche reference on Eichler-Shimura]
 
 
 
-The connection with modular forms is described by the Eichler-Shimura Isomorphism. For each integer $k\geq 0$, define $V_k(\CC):=\Sym^k(\CC^2)\cong \CC[X,Y]_k$. $V_k(\CC)$ is equipped with a right action of $\Gamma$ by $P(X,Y)|\gamma =P((X,Y)|\gamma^{-1})=P(dX-cY,-bX+aY)$. A cuspidal modular form $f\in S_{k+2}(\Gamma)$ gives rise to a modular symbol $\phi_{f}\in \Symb_{\Gamma} (V_k)$ by
+\subsection{Classical Modular Symbols}
+\begin{definition}
+Let $F$ be a field and $k\geq 0$ be an integer. Define $V_k(F):=\Sym^k(F^2)$. We identify $V_k(F)$ with homogeneous degree-$k$ polynomials in two variables, $V_k(F) = F[X,Y]_k$. We equip $V_k(F)$ with a right-action of $\GL_2(F)$ by $P(X,Y)|\gamma =\det(\gamma)^{k}P((X,Y)|\gamma^{-1})=P(dX-cY,-bX+aY)$, where $\gamma=\begin{pmatrix} a & b \\ c & d\end{pmatrix}$. 
+\end{definition}
+The connection with modular forms is described by the Eichler-Shimura Isomorphism. A cuspidal modular form $f\in S_{k+2}(\Gamma)$ gives rise to a modular symbol $\phi_{f}\in \Symb_{\Gamma} (V_k(\CC))$ by
 \begin{equation*}
 	\phi_{f} \{r, s\} = \int_r^s f(z) (zX+Y)^k dz.
 \end{equation*}
@@ -132,26 +139,133 @@ Let $\iota = \begin{pmatrix} -1 & 0 \\ 0 & 1\end{pmatrix}$, which normalizes $\G
 For each cusp form $f\in S_{k+2}(\Gamma)$, a theorem of Shimura [need ref!] gives complex periods $\Omega_f^\pm$ such that $\phi_f^\pm/\Omega_f^\pm \in \Symb_\Gamma(V_k(\overline{L}))$. Here $L$ is a number field containing the coefficients of the regularized $q$-expansion of $f$.
 %see 3.4 of Pollack-Stevens
 \begin{theorem}[Eichler-Shimura]
-Let $L$ be a number field. The maps $S_{k+2}(\Gamma,L)\longrightarrow H^1_p(\Gamma, V_k(L))^\pm$, $f\mapsto \phi_{f}^\pm$ are isomorphisms of Hecke modules. That is,
+Let $F$ be a number field. The maps $S_{k+2}(\Gamma,F)\longrightarrow H^1_p(\Gamma, V_k(F))^\pm$, $f\mapsto \phi_{f}^\pm$ are isomorphisms of Hecke modules. That is,
 \begin{equation*}
-	H^1_p(\Gamma, V_k(L)) \cong S_{k+2}(\Gamma,L)\oplus \overline{S_{k+2}(\Gamma,L)}
+	H^1_p(\Gamma, V_k(F)) \cong S_{k+2}(\Gamma,F)\oplus \overline{S_{k+2}(\Gamma,F)}
 \end{equation*}
 \end{theorem}
 
-By replacing the vector spaces $V_k(L)$ with (infinite-dimensional) spaces of $p$-adic distributions $\cD_k(L)$, Stevens \cite{Stevens} constructs \emph{overconvergent} modular symbols corresponding to  overconvergent modular forms.
+\subsection{Overconvergent Modular Symbols}
+By replacing the vector spaces $V_k(F)$ with spaces of $p$-adic distributions $\cD_k(F)$, Stevens \cite{Stevens} constructs \emph{overconvergent} modular symbols corresponding to  overconvergent modular forms.
+
+We closely follow \cite{Bellaiche}, referring the reader there for details. Let $L$ be a commutative, noetherian $\QQ_p$-Banach algebra with norm $|\cdot |$. 
+
+For each $r\in p^\QQ$, denote by $\cA[r](L)$ the $L$-module of functions $f:\ZZ_p\rightarrow L$ which, for all $e\in\ZZ_p$,  have power series expansions 
+\begin{equation*}
+	f(z) = \sum_{n \geq 0 } a_n(e) (z-e)^n
+\end{equation*}
+converging on the closed balls $B[e,r] = \{z \in \CC_p, |z-e| \leq r\}$. The space $\cA[r](L)$ is a $\QQ_p$-Banach algebra under the norm $||f ||_r = \sup_{e\in\ZZ_p} \sup_n |a_n(e)|r^n$. When $L=\QQ_p$, we simply write $\cA[r]:=\cA[r](\QQ_p)$.
+
+
+
+\begin{definition}
+Let $\cD[r](\QQ_p)$ denote the Banach-dual $\Hom_{\QQ_p}(\cA[r],\QQ_p)$. It is naturally a $\QQ_p$-Banach module under the norm $||\mu||_r := \sup_{f\in \cA[r]} \frac{ |\mu(f)|}{||f||_r}$. We define $\cD[r](L) :=\cD[r](\QQ_p) \widehat{\otimes} L$.
+\end{definition}
+
+\begin{remark}
+We note that the notation we have adopted differs from the notation in \cite{HarronPollack}, which defines the above modules as $\Hom_{\QQ_p}(\cA[r],L)$. This latter module is in fact much larger than the spaces we work with, and apparently does not satisfy desired base-change properties. We note that there is an injection $\cD[r](L)\hookrightarrow \Hom_{\QQ_p} (\cA[r], L)$.
+\end{remark}
+
+\begin{proposition}[\cite{Bellaiche}, III.4.18 and III.4.21] For $r_1> r_2$, the natural restriction maps $\cA[r_1](L)\rightarrow \cA[r_2](L)$  and $\cD[r_2](L)\rightarrow \cD[r_1](L)$ are injective and compact.
+\end{proposition}
+
+\begin{definition}
+For any $r\geq 0$, the spaces of \emph{overconvergent} functions and distributions are defined as
+\begin{align}
+	\cA^\dagger[r](L) &:= \varinjlim_{s>r} \cA[s](L)\\
+	\cD^\dagger[r](L) &:=\varprojlim_{s>r} \cD[s](L).
+\end{align}
+When $r=0$ and $L=\QQ_p$, we simply write $\cA^\dagger = \cA^\dagger[0](\QQ_p)$, $\cD^\dagger = \cD^\dagger[0](\QQ_p)$.
+\end{definition}
+We will focus primarily on the cases $L=\QQ_p$ and $L=\Lambda = \ZZ_p[[\ZZ_p^\times]]$.
+
+\subsection{Weight $\kappa$ action}
+Let $\Sigma_0(p)$ denote the monoid
+\begin{equation*}
+	\Sigma_0(p) : = \left\{ \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in M_2(\ZZ_p) : a\in \ZZ_p^\times, c\in p\ZZ_p\right\}.
+\end{equation*}
+
+\begin{definition}
+For each integer $k\geq 0$, we define a (left) weight-$k$ action of $\Sigma_0(p)$ on $\cA^\dagger$ by 
+\begin{equation}
+	\gamma \cdot_k f(z) := (a+cz)^k f\left(\frac{b+dz}{a+cz}\right).
+\end{equation}
+This induces a right action on $\cD^\dagger$ by $(\mu|_k\gamma) (f) = \mu(\gamma\cdot_k f)$. We denote by $\cA_k^\dagger$, $\cD_k^\dagger$ the underlying spaces equipped with this weight-$k$ action.
+\end{definition}
+
+\begin{remark}
+We have a $\Sigma_0(p)$-equivariant surjection $\rho_k : \cD_k^\dagger\rightarrow V_k(\QQ_p)$, called the specialization map, defined by $\rho_k(\mu) = \mu( zX-Y)^k$, which induces a Hecke-equivariant homomorphism $\rho_k : H_c^1(\Gamma, \cD^\dagger_k)\rightarrow H^1_c (\Gamma, V_k(\QQ_p))$. Stevens shows \cite{Stevens} that this homomorphism is in fact an isomorphism for small slope ($<k$) modular symbols. 
+\end{remark}
 
 [Replacing the coefficient module $V_k$ by $p$-adic distributions, one obtains an overconvergent Eichler-Shimura isomorphism comparing overconvergent modular symbols with overconvergent modular forms. \cite{Andreatta, Iovita, Stevens}. We probably don't need to say this, but it might motivate the our constructions]
 
-[Insert definitions of coefficient modules]
-
-[Insert theorem on $p$-adic $L$-functions?]
 
 
+\subsection{Families of Modular Symbols}
+
+\section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
+
+We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trivial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
+
+\subsection{$\Sym^k(E^2)$}
+
+We identify $\Sym^k(E^2)$ with $E[X,Y]_k$, and endow it with left action of $\GL_2(\QQ)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
+\begin{definition}
+Define a bilinear pairing on $\Sym^k(E^2)$ by
+\begin{equation*}
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle = \begin{cases} (-1)^i {k \choose i} & \text{ if } i+j=k\\
+												0	& \text{ otherwise} \end{cases}
+\end{equation*}
+and extending via linearity.
+\end{definition}
+
+
+\begin{lemma}
+For all $\gamma\in \GL_2(\QQ)$, $P,Q\in\Sym^k(E^2)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
+\end{lemma}
+\begin{proof}
+This can be seen via an ugly computation. (There should be an easy way to see this in terms of the wedge product).
+\end{proof}
+
+For the purposes of Hecke-equivariance, we define a twisted pairing using the Atkin-Lehner involution $W_N = \begin{pmatrix} 0 & -1 \\ N & 0 \end{pmatrix}$.
+\begin{definition}
+The twisted pairing on $\Sym^k(E^2)$ is defined by
+\begin{equation}
+	\langle P, Q\rangle^t := \langle P, W_N \cdot Q\rangle.
+\end{equation}
+\end{definition}
+More explicitly,
+\begin{equation*}
+	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle_N^t = \langle X^i Y^{k-i}, (-Y)^j(NX)^{k-j}\rangle= \begin{cases} (-1)^k N^i {k \choose i} & \text{ if } i=j\\
+												0	& \text{ otherwise} \end{cases}
+\end{equation*}
+
+We can view $\Sym^k(\QQ_p^2)$ as a quotient of $\cD_k$, and the pairings from the previous section extend uniquely in a $\Sigma_0(p)$-equivariant way to $\cD_k$. Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
+
+\begin{definition}
+Let $\langle~,~\rangle^t_N : \cD_k\times\cD_k\longrightarrow \QQ_p$ be the $\QQ_p$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t := \sum_{n=0}^\infty {k \choose n} (Np)^n \mu(z^n)\nu(z^n)
+\end{equation}
+\end{definition}
 
 
 
 
-[Introduce the various coefficient modules here]
+\begin{definition}
+Let $\langle ~, ~\rangle^t_N :\cD(\Lambda)\times\cD(\Lambda) \longrightarrow \Lambda$ be the $\Lambda$-bilinear pairing
+\begin{equation}
+	\langle \mu, \nu \rangle_N^t = \sum_{n=0}^\infty {\frac{\log_p(1+pw)}{\log_p(1+p)} \choose n} (Np)^n \mu(z^n)\nu(z^n).
+\end{equation}
+\end{definition}
+
+\begin{lemma}
+The above pairing interpolates the weight-$k$ twisted pairings, and satisfies the following equivariance property: for all $\gamma \in\Gamma_0(p)$, $\mu,\nu\in \cD(\Lambda)$, 
+\begin{equation}
+	\langle \mu | \gamma, \nu\rangle_N^t  = \langle \mu, \nu| W_{Np}^{-1}\gamma^* W_{Np}\rangle_N^t.
+\end{equation}	
+\end{lemma}
+
 
 \section{Existing Pairings on Modular Symbols} \label{sec:existing_pairings}
 % Reference discussions of pairings in Bellaiche and Kim's thesis
@@ -198,68 +312,7 @@ The Hecke operators $T_\ell$ ($\ell\nmid N$, $U_q$ , and $\langle a \rangle$ are
 
 
 
-\section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
 
-We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
-
-\subsection{$\Sym^k(E^2)$}
-
-We identify $\Sym^k(E^2)$ with $E[X,Y]_k$, and endow it with left action of $\GL_2(\QQ)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
-\begin{definition}
-Define a bilinear pairing on $\Sym^k(E^2)$ by
-\begin{equation*}
-	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle = \begin{cases} (-1)^i {k \choose i} & \text{ if } i+j=k\\
-												0	& \text{ otherwise} \end{cases}
-\end{equation*}
-and extending via linearity.
-\end{definition}
-
-
-\begin{lemma}
-For all $\gamma\in \GL_2(\QQ)$, $P,Q\in\Sym^k(E^2)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
-\end{lemma}
-\begin{proof}
-This can be seen via an ugly computation. (There should be an easy way to see this in terms of the wedge product).
-\end{proof}
-
-For the purposes of Hecke-equivariance, we define a twisted pairing using the Atkin-Lehner involution $W_N = \begin{pmatrix} 0 & -1 \\ N & 0 \end{pmatrix}$.
-\begin{definition}
-The twisted pairing on $\Sym^k(E^2)$ is defined by
-\begin{equation}
-	\langle P, Q\rangle^t := \langle P, W_N \cdot Q\rangle.
-\end{equation}
-\end{definition}
-More explicitly,
-\begin{equation*}
-	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle_N^t = \langle X^i Y^{k-i}, (-Y)^j(NX)^{k-j}\rangle= \begin{cases} (-1)^k N^i {k \choose i} & \text{ if } i=j\\
-												0	& \text{ otherwise} \end{cases}
-\end{equation*}
-
-We can view $\Sym^k(\QQ_p^2)$ as a quotient of $\cD_k$, and the pairings from the previous section extends uniquely in a $\Sigma_0(p)$-equivariant way to $\cD_k$. Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
-
-\begin{definition}
-Let $\langle~,~\rangle^t_N : \cD_k\times\cD_k\longrightarrow \QQ_p$ be the $\QQ_p$-bilinear pairing
-\begin{equation}
-	\langle \mu, \nu \rangle_N^t := \sum_{n=0}^\infty {k \choose n} (Np)^n \mu(z^n)\nu(z^n)
-\end{equation}
-\end{definition}
-
-
-
-
-\begin{definition}
-Let $\langle ~, ~\rangle^t_N :\cD(\Lambda)\times\cD(\Lambda) \longrightarrow \Lambda$ be the $\Lambda$-bilinear pairing
-\begin{equation}
-	\langle \mu, \nu \rangle_N^t = \sum_{n=0}^\infty {\frac{\log_p(1+pw)}{\log_p(1+p)} \choose n} (Np)^n \mu(z^n)\nu(z^n).
-\end{equation}
-\end{definition}
-
-\begin{lemma}
-The above pairing interpolates the weight-$k$ twisted pairings, and satisfies the following equivariance property: for all $\gamma \Gamma_0(p)$, $\mu,\nu\in \cD(\Lambda)$, 
-\begin{equation}
-	\langle \mu | \gamma, \nu\rangle_N^t  = \langle \mu, \nu| W_{Np}^{-1}\gamma^* W_{Np}\rangle_N^t.
-\end{equation}	
-\end{lemma}
 
 \section{Reducing to Level 1} \label{sec:level_one}
 
@@ -326,6 +379,11 @@ The main theorem will look like
 One problem is that $L^{lag}$ is not well-defined---it depends on a choice of complex periods. See Kim, Theorem 3.9.3 for a precise (if suspect!) statement. Note that this only handles the case that $f$ has level $Np^r$ for $r\geq 1$ and non-trivial nebentype. Will need Hida for a reference in the ordinary case, since Bella\"iche is incomplete.
 
 Note: Kim's results seem to require a Gorenstein property of the Hecke algebra. Bella\'iche's construction of $L^{adj}$ is slightly different: $L^{adj}$ is defined as a generator of a canonical ideal $\mathcal{L}^{adj}$ whenever that ideal is principal. A precise relation to Kim's definition (and ours) is given by Bella\"iche Proposition VI.4.5.
+
+\begin{definition}
+A closed point $x\in C^o$ with field of definition $L$ is a \emph{good point} if [Insert long definition here?]
+Bella\ $\Symb_\Gamma(\cD(L))^\pm[x]$ are $1$-dimensional.
+\end{definition}
 
 \begin{proposition}
 Let $L$ be a finite extension of $\QQ_p$ and let $x\in \mathcal{C}^o(L)$ be a good point [see REF]. Fix $U=\Sp\mathcal{T}$ a sufficiently small clean neighborhood of $x$ [see REF]. Then for every sufficiently small real $r>0$ there exist two real constants $0<c<C$ such that for every point $y\in U$ with $\kappa(y)=w$ one has
