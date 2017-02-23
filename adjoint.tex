@@ -56,6 +56,9 @@
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cD}{\mathcal{D}}
 
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\G}{\mathbb{G}}
+
 
 %%%%%%%%%%%%%%% NAMED OPERATORS %%%%%%%%%%%%%%%
 \DeclareMathOperator{\Gal}{Gal}
@@ -72,6 +75,7 @@
 \DeclareMathOperator{\cor}{cor}
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\Sp}{Sp}
+
 
 
 
@@ -190,6 +194,7 @@ For each integer $k\geq 0$, we define a (left) weight-$k$ action of $\Sigma_0(p)
 \begin{equation}
 	\gamma \cdot_k f(z) := (a+cz)^k f\left(\frac{b+dz}{a+cz}\right).
 \end{equation}
+[rem: Bellaiche seems to replace z by -z in the RHS. should track this down later.]
 This induces a right action on $\cD^\dagger$ by $(\mu|_k\gamma) (f) = \mu(\gamma\cdot_k f)$. We denote by $\cA_k^\dagger$, $\cD_k^\dagger$ the underlying spaces equipped with this weight-$k$ action.
 \end{definition}
 
@@ -197,15 +202,37 @@ This induces a right action on $\cD^\dagger$ by $(\mu|_k\gamma) (f) = \mu(\gamma
 We have a $\Sigma_0(p)$-equivariant surjection $\rho_k : \cD_k^\dagger\rightarrow V_k(\QQ_p)$, called the specialization map, defined by $\rho_k(\mu) = \mu( zX-Y)^k$, which induces a Hecke-equivariant homomorphism $\rho_k : H_c^1(\Gamma, \cD^\dagger_k)\rightarrow H^1_c (\Gamma, V_k(\QQ_p))$. Stevens shows \cite{Stevens} that this homomorphism is in fact an isomorphism for small slope ($<k$) modular symbols. 
 \end{remark}
 
-
-
-[Define weight space, Insert weight $\kappa$ action]
-[Replacing the coefficient module $V_k$ by $p$-adic distributions, one obtains an overconvergent Eichler-Shimura isomorphism comparing overconvergent modular symbols with overconvergent modular forms. \cite{Andreatta, Iovita, Stevens}. We probably don't need to say this, but it might motivate the our constructions]
-
-
+Denote by $\cW:=\Hom_{cts}(\ZZ_p^\times,\G_m)$ the space of $p$-adic weights. The integers embed in $\cW$ by $k\mapsto (z\mapsto z^k)$ [are they dense?]. For each $\kappa\in \cW(\CC_p)$, one defines the weight-$\kappa$ action of $\Sigma_0(p)$ on $\cA^\dagger$ by
+\begin{equation*}
+	\gamma \cdot_\kappa f(z) = \kappa(a+cz) f\left(\frac{b+dz}{a+cz}\right).
+\end{equation*}
+In order to interpret the automorphy factor, we use the fact that the the function $z\mapsto \kappa(a+cz)$ is a locally analytic function on $\ZZ_p$--see \S III.6.1 of \cite{Bellaiche} or \S2.3 of \cite{Robs} for details.
+Of course, the left-action of $\Sigma_0(p)$ on $\cA^\dagger$ induces a right action on $\cD^\dagger$ by
+\begin{equation*}
+	\mu|_\kappa \gamma = f\mapsto \mu( \gamma\cdot_\kappa f).
+\end{equation*}
+%For any $\kappa\in \cW(\C_p)$, the space of weight-$\kappa$ overconvergent modular symbols is defined as
+%\begin{equation*}
+%	H^1_c(\Gamm
+%\end{equation*}
+\begin{remark}
+For general $p$-adic weights, the work of \cite{Andreatta, Iovita, Stevens} gives an Eichler-Shimura isomorphism comparing overconvergent modular symbols with overconvergent modular forms
+\end{remark}
 
 \subsection{Families of Modular Symbols}
-[Insert family action]
+For any admissible affinoid $W=\Sp(R)$ of $\cW$, consider the space $\cD^\dagger(R)$, thought of as families of distributions over $R$. The inclusion $W\subset \cW$ is a point of $\cW(R)$, and thus a homomorphism $K\in \cW(R)=\Hom_{cts}(\ZZ_p^\times,R^\times)$. This character allows us to define an action of $\Sigma_0(p)$ on $\cA^\dagger(R)$ and $\cD^\dagger(R)$ by
+\begin{equation}
+	\gamma \cdot_K f(z) = K(a+cz) f(z), ~~ (\mu|_K\gamma)= f\mapsto \mu(\gamma\cdot_K f).
+\end{equation}
+[Say something about specialization being a formal property of base change. Spell this out in the concrete example below]
+As a concrete example, we follow \S2.4 of \cite{Robs}. For each integer $m$ modulo $p-1$, let $\cW_m$ denote the subset of weights whose restriction to $(\ZZ/p)^\times$ is $\omega^m$. Picking a topological generator $\gamma$ of $1+p\ZZ_p$, we can identify $\cW_m$ with the $p$-adic ball $B(0,1)$ by $\kappa \mapsto \kappa(\gamma)-1$. Thus $\cW_m \cong \Sp(\QQ_p\langle \langle w \rangle\rangle)$. For each $m$ modulo $p-1$ and each $\gamma \in \Sigma_0(p)$, we have
+\begin{align*}
+	K(a+cZ)  &= \omega^m(a) (1+pw)^{\log_\gamma\frac{a+cz}{\omega(a)}}\\
+	&=\sum_{n\geq 0},
+\end{align*}
+where the right-hand-side is considered as an element of $\cA^\dagger(\QQ_p\langle \langle w \rangle\rangle)$--see equations $2.1$ and $2.2$ of \cite{Robs} for details.
+
+
 
 \section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
 
