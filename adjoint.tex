@@ -21,9 +21,9 @@
 % Hyperrefs
 \usepackage{hyperref}
 
-%\usepackage{tikz}
-%\usetikzlibrary{shapes,arrows,calc,matrix}
-%\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,matrix}
+\usepackage{tikz-cd}
 
 %%%%% for spacing
 \usepackage{lipsum}
@@ -94,9 +94,9 @@ Let $E$ be a complete, discrete valued field.  \todo{think about what works in c
 \section{Cohomology of Modular Curves} \label{sec:mod_curve_cohom}
 % Reference appendix to Hida's Elementary Theory of L-functions and Eisenstein Series
 %The theory of modular symbols allows us to efficiently compute with spaces of modular forms. We briefly recall 
-Let $\Gamma$ be a congruence subgroup--in our examples, we will take $\Gamma_0(N)$. Our primary objects of study will be the compactly supported cohomology groups $H_c^*(\Gamma,M)$, which is isomorphic to the compactly supported cohomology of the open modular curve $\cH/\Gamma$. These cohomology groups can be concretely described in terms of Modular Symbols, which we briefly recall.
 
-Denote by $\Delta_0$ the degree-$0$ divisors on $\mathbb{P}^1(\QQ)$, equipped with the left action of $\Gamma$ by fractional-linear-transformations. Let $M$ be any right $\ZZ[\Gamma]$-module. The space of $M$-valued modular symbols for $\Gamma$ is defined as
+Let $\Gamma$ be a congruence subgroup with $\Gamma_1(N) \subseteq \Gamma \subseteq \Gamma_0(N)$. Denote by $\Delta_0$ the degree-$0$ divisors on $\mathbb{P}^1(\QQ)$, equipped with the left action of $\Gamma$ by fractional linear transformations. Let $M$ be any right $\ZZ[\Gamma]$-module. The space of $M$-valued modular symbols for $\Gamma$ is defined as
+
 \begin{equation}
 	\Symb_\Gamma(M) := \Hom_{\ZZ[\Gamma]}(\Delta_0, M).
 \end{equation}
@@ -111,13 +111,13 @@ Suppose $\Gamma$ acts invertibly on $\cH$, or $6$ acts invertibly on $M$. Then $
 %the the compactly supported cohomology of the open modular curve $\Gamma\cH$, with coefficients in the local system blah blah blah.
 
 
-We have a natural map $H^1_c(\Gamma, M)\longrightarrow H^1(\Gamma,M)$, and thus a natural map from $\Symb_\Gamma(M)\longrightarrow H^1(\Gamma,M)$. Concretely, a modular symbol $\Phi\in \Symb_\Gamma(M)$ is mapped to the cohomology class of the cocycle $\sigma_\Phi$ defined by
+We have a natural map $H^1_c(\Gamma, M)\longrightarrow H^1(\Gamma,M)$, and thus a natural map from $\Symb_\Gamma(M)\longrightarrow H^1(\Gamma,M)$. Concretely, a modular symbol $\Phi\in \Symb_\Gamma(M)$ is mapped to the cohomology class of the inhomogeneous cocycle $\sigma_\Phi$ defined by
 \begin{align}
 \sigma_{\Phi}(\alpha, \beta) &= \Phi(\{\alpha \cdot \infty, \beta \cdot \infty\}).% \\
 %\sigma_{\Psi}(\alpha, \beta) &= \Psi(\{\alpha \cdot \infty, \beta \cdot \infty\}).
 \end{align}
 \begin{definition}
-The parabolic cohomology $H^1_p(\Gamma,M)$ is defined to be the image of the natural map $H^1_c(\Gamma,M)\longrightarrow H^1_p(\Gamma,M)$.
+The parabolic cohomology $H^1_p(\Gamma,M)$ is defined to be the image of the natural map $H^1_c(\Gamma,M)\longrightarrow H^1(\Gamma,M)$.
 \end{definition}
 The kernel of the map $\Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma,M)$ is the subspace of boundary symbols, which correspond to Eisenstein series. See [Bellaiche reference on Eichler-Shimura]
 
@@ -133,7 +133,7 @@ The connection with modular forms is described by the Eichler-Shimura Isomorphis
 \end{equation*}
 Let $\iota = \begin{pmatrix} -1 & 0 \\ 0 & 1\end{pmatrix}$, which normalizes $\Gamma$ and hence induces an involution on $H^1_p(\Gamma, V_k(\CC))$ [insert reference] (this involution roughly corresponds to the action of complex conjugation). Thus, $H^1_p(\Gamma, V_k(\CC))$ decomposes into $H^1_p(\Gamma,V_k(\CC))^+\oplus H^1_p(\Gamma,V_k(\CC))^-$, and $\phi_f = \phi_f^+ + \phi_f^-$. 
 
-For each cusp form $f\in S_{k+2}(\Gamma)$, a theorem of Shimura [need ref!] gives complex periods $\Omega_f^\pm$ such that $\phi_f^\pm/\Omega_f^\pm \in \Symb_\Gamma(V_k(\overline{L}))$. Here $L$ is a number field containing the coefficients of the regularized $q$-expansion of $f$.
+For each cusp form $f\in S_{k+2}(\Gamma)$, let $F$ be a number field containing the coefficients of the normalized $q$-expansion of $f$. Then a theorem of Shimura [need ref!] gives complex periods $\Omega_f^\pm$ such that $\phi_f^\pm/\Omega_f^\pm \in \Symb_\Gamma(V_k(\overline{F}))$. \todo{Explain notation $S_{k+2}(\Gamma, F)$ in this paragraph}
 %see 3.4 of Pollack-Stevens
 \begin{theorem}[Eichler-Shimura]
 Let $F$ be a number field. The maps $S_{k+2}(\Gamma,F)\longrightarrow H^1_p(\Gamma, V_k(F))^\pm$, $f\mapsto \phi_{f}^\pm$ are isomorphisms of Hecke modules. That is,
@@ -350,39 +350,121 @@ The Hecke operators $T_\ell$ ($\ell\nmid N$, $U_q$ , and $\langle a \rangle$ are
 \end{equation*}	
 \end{lemma}
 
+[Add discussion of cup products]
 
 
+\section{Cup products, parabolic cohomology, and corestriction}
 
+We gave a geometric description of the cup product pairing
+\begin{equation} \label{eq:pcoh_pairing}
+H^1_p(\Gamma, M) \times H^1_p(\Gamma, M) \to E
+\end{equation}
+in Section \ref{sec:existing_pairings}.  We begin this section by giving an alternative description in terms of group cohomology.
 
+Given homogeneous cochains $\sigma_1, \sigma_2 \in Z^1_p(\Gamma, M)$, their cup product is given by
+\[
+(\sigma_1 \cup \sigma_2)(g_0, g_1, g_2) = \langle \sigma_1(g_0, g_1), \sigma_2(g_1, g_2) \rangle
+\]
+(see \cite{Sharifi}*{Rem. 1.9.3} for example). To define the pairing \eqref{eq:pcoh_pairing}, we need to compose with a homomorphism $\omega_\Gamma : H^2_p(\Gamma, E) \to E$.  This map is defined using the following lemma.
 
+\begin{lemma} \label{lem:H2E}
+The cohomology group $H^2(\Gamma, E)$ vanishes.
+\end{lemma}
+\begin{proof}
 
+<<<<<<< HEAD
 \section{Reducing to Level 1} \label{sec:level_one}
 [Rem: Hida's Elementary Theory of Eisenstein series, Appendix, Proposition 2, gives an isomorphism between $H^2_c(\Gamma, M)$ and $H^2_P(\Gamma, M)$.]
+=======
+\end{proof}
+>>>>>>> af8c5ede97ef24afb72ad8785ab8d3b739a52081
 
-Suppose that $\Phi, \Psi \in \Symb_{\Gamma_0(N)}(M)$ are overconvergent modular symbols.  As in Section \ref{sec:mod_curve_cohom}, we associate to them homogeneous $1$-cocycles in $Z^1(\Gamma_0(N), M)$ by the following formulas:
+By Lemma \ref{lem:H2E}, if $\tau \in Z^2(\Gamma, E)$ then there is some cochain $\kappa \in C^1(\Gamma, E)$ so that $\tau = d\kappa$.  We set
+\[
+\omega_\Gamma(\tau) = \sum_{g \in \SL_2(\ZZ) / \Gamma} \kappa\left(g, g \cdot \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix}\right)\right).
+\]
+Note that the definition of $\omega_\Gamma$ does not depend on the choice of coset representatives, since $\kappa(hg_0, hg_1) = \kappa(g_0, g_1)$ for $h \in \Gamma$.  We write $\omega$ for $\omega_{\SL_2(\ZZ)}$.  
+
+\begin{definition}
+The pairing $\langle , \rangle : H^1_p(\Gamma, M) \times H^1_p(\Gamma, M) \to E$ is defined by
+\[
+\langle [\sigma_1], [\sigma_2] \rangle =
+\]
+\end{definition}
+Compatibility with the pairing defined in Section \ref{sec:existing_pairings} follows from the following result.
+
+\begin{proposition}
+The diagram
+\[
+\begin{tikzcd}
+H^2_c(\Gamma, E) \arrow{r} \arrow{d} & E \arrow[equal]{d} \\
+H^2_p(\Gamma, E) \arrow{r}{\omega_\Gamma} & E
+\end{tikzcd}
+\]
+commutes, where the left map is the natural surjection and the top map is Poincar\'e duality.  Moreover, all of the maps are isomorphisms.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+
+\end{corollary}
+
+We now describe how to use corestriction to reduce the computation of the cup product pairing
+on $\Gamma$ to the analogous pairing on $\SL_2(\ZZ)$.  We first need to describe the corestriction
+map on parabolic cohomology.
+
+In terms of cochains, the corestriction map
+\[
+\cor : C^i(\Gamma, E) \to C^i(\SL_2(\ZZ), E)
+\]
+is the composition of the isomorphism
+\[
+C^i(\Gamma, E) \to C^i(\SL_2(\ZZ), \Hom_{\ZZ[\Gamma]}(\ZZ[\SL_2(\ZZ)], E))
+\]
+from Shapiro's lemma \cite{Sharifi}*{Thm. 1.5.3} with the trace map
 \begin{align*}
-\sigma_{\Phi}(\alpha) &= \Phi(\{\infty, \alpha \cdot \infty\}) \\
-\sigma_{\Psi}(\beta) &= \Psi(\{\alpha \cdot \infty, \alpha \cdot \beta \cdot \infty\}).
+\Hom_{\ZZ[\Gamma]}(\ZZ[\SL_2(\ZZ)], E) &\to E \\
+\varphi &\mapsto \sum_{g \in \SL_2(\ZZ)/\Gamma} \varphi(g).
 \end{align*}
-%f(\alpha) \otimes g(\alpha \cdot \beta)
-The pairing $M \times M \to E$ from Section \ref{sec:coeff_pairing} then induces a natural cup product pairing $\Hh^1_P(\Gamma_0(N), M) \times \Hh^1_P(\Gamma_0(N), M) \to \Hh^2_P(\Gamma_0(N), E)$.  In order to compute this pairing, we need to give an explicit isomorphism $\omega : \Hh^2_P(\Gamma_0(N), E) \to E$, which we do in two steps.
+Since $\cor$ commutes with the differential, we obtain induced maps
+\begin{align*}
+\cor : H^i(\Gamma, E) &\to H^i(\SL_2(\ZZ), E) \\
+\cor : H^i_p(\Gamma, E) &\to H^i_p(\SL_2(\ZZ), E).
+\end{align*}
 
-First, corestriction provides an isomorphism $\cor : \Hh^2(\Gamma_0(N), E) \to \Hh^2(\SL_2(\ZZ), E)$, given by multiplication by $[\SL_2(\ZZ) : \Gamma_0(N)]$, \todo{need isomorphism on parabolic cohomology, not normal cohomology} so we need only compute an isomorphism $\Hh^2_P(\SL_2(\ZZ), E) \to E$.  Using Theorem \ref{thm:H2E}, we have
+\begin{proposition}
+The diagram
 \[
-\Hh^2_P(\SL_2(\ZZ), E) \cong Z^2(\SL_2(\ZZ), E) / B^2_P(\SL_2(\ZZ), E) \cong B^2(\SL_2(\ZZ), E) / B^2_P(\SL_2(\ZZ), E).
+\begin{tikzcd}
+H^2_p(\Gamma, E) \ar{r}{\omega_\Gamma} \ar[swap]{d}{\cor} & E \ar[equal]{d} \\
+H^2_p(\SL_2(\ZZ), E) \ar{r}{\omega} & E
+\end{tikzcd}
 \]
-Given a cocycle $\tau \in Z^2(\SL_2(\ZZ), E)$, to compute $\omega([\tau]) \in E$ we thus write $\tau = d\kappa$ for some $\kappa \in C^1(\SL_2(\ZZ), E)$ and set
-\[
-\omega([\tau]) = \kappa\left( \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}\right).
-\]
-It remains to explain how to write $\tau = d\kappa$ as a coboundary.
+commutes.
+%\[
+%\begin{tikzcd}
+%H^1_p(\Gamma, M) \times H^1_p(\Gamma, M) \ar{r} \ar[xshift=6ex]{d}{\cor} \ar[xshift=-6ex,swap]{d}{\cor} & H^2_p(\Gamma, E) \ar{d}{\cor} \\
+%H^1_p(\SL_2(\ZZ), M) \times H^1_p(\SL_2(\ZZ), M) \ar{r} & H^2_p(\SL_2(\ZZ), E)
+%\end{tikzcd}
+%\]=
+\end{proposition}
+\begin{proof}
 
+\end{proof}
+
+\section{Using torsion in \texorpdfstring{$\SL_2(\ZZ)$}{SL(2,Z)}} \label{sec:using_torsion}
+
+In this section we describe how to write a cocycle $\tau \in Z^2(\SL_2(\ZZ), E)$ as a coboundary $\tau = d\kappa$.
 The key fact used in computing $\kappa$ is that $\SL_2(\ZZ)$ is generated by torsion elements
 \begin{align*}
 R &= \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}, \\
 S &= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix};
 \end{align*}
-note that $R$ has order $3$ and $S^2 = -I$.  We can determine $\kappa(R)$ and $\kappa(S)$ as follows, using the construction of $\kappa$ as $d\kappa = \tau$.
+note that $R$ has order $3$ and $S^2 = -I$.
+
+We can determine $\kappa(R)$ and $\kappa(S)$ as follows, using the construction of $\kappa$ as $d\kappa = \tau$.
 \begin{align*}
 \tau(S,S) &= 2\kappa(S) - \kappa(-I) \\
 \tau(-I,-I) &= 2\kappa(-I) - \kappa(I) \\
