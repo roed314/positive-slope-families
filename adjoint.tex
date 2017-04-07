@@ -94,7 +94,9 @@ Let $E$ be a complete, discrete valued field.  \todo{think about what works in c
 \section{Cohomology of Modular Curves} \label{sec:mod_curve_cohom}
 % Reference appendix to Hida's Elementary Theory of L-functions and Eisenstein Series
 %The theory of modular symbols allows us to efficiently compute with spaces of modular forms. We briefly recall 
-Let $\Gamma$ be a congruence subgroup--in our examples, we will take $\Gamma_0(N)$. Denote by $\Delta_0$ the degree-$0$ divisors on $\mathbb{P}^1(\QQ)$, equipped with the left action of $\Gamma$ by fractional-linear-transformations. Let $M$ be any right $\ZZ[\Gamma]$-module. The space of $M$-valued modular symbols for $\Gamma$ is defined as
+Let $\Gamma$ be a congruence subgroup--in our examples, we will take $\Gamma_0(N)$. Our primary objects of study will be the compactly supported cohomology groups $H_c^*(\Gamma,M)$, which is isomorphic to the compactly supported cohomology of the open modular curve $\cH/\Gamma$. These cohomology groups can be concretely described in terms of Modular Symbols, which we briefly recall.
+
+Denote by $\Delta_0$ the degree-$0$ divisors on $\mathbb{P}^1(\QQ)$, equipped with the left action of $\Gamma$ by fractional-linear-transformations. Let $M$ be any right $\ZZ[\Gamma]$-module. The space of $M$-valued modular symbols for $\Gamma$ is defined as
 \begin{equation}
 	\Symb_\Gamma(M) := \Hom_{\ZZ[\Gamma]}(\Delta_0, M).
 \end{equation}
@@ -106,10 +108,6 @@ Suppose $\Gamma$ acts invertibly on $\cH$, or $6$ acts invertibly on $M$. Then $
 %\BSymb_\Gamma(M)\longrightarrow \Symb_\Gamma(M)\longrightarrow H^1_p(\Gamma, M)\longrightarrow 0
 %\end{equation*}
 \end{proposition}
-
-The compactly supported cohomology of the group $\Gamma$ is defined as \todo{do we need this?}
-[Need to distinguish the cohomology of the modular curve and group cohomology, and make precise comparisons... eg. $H^*(\Gamma, M) = H^*(Y, \widetilde{M})$]
-
 %the the compactly supported cohomology of the open modular curve $\Gamma\cH$, with coefficients in the local system blah blah blah.
 
 
@@ -147,7 +145,7 @@ Let $F$ be a number field. The maps $S_{k+2}(\Gamma,F)\longrightarrow H^1_p(\Gam
 \subsection{Overconvergent Modular Symbols}
 By replacing the vector spaces $V_k(F)$ with spaces of $p$-adic distributions $\cD_k(F)$, Stevens \cite{Stevens} constructs \emph{overconvergent} modular symbols corresponding to  overconvergent modular forms.
 
-We closely follow \cite{Bellaiche}, referring the reader there for details. Let $L$ be a commutative, noetherian $\QQ_p$-Banach algebra with norm $|\cdot |$. 
+We closely follow \cite{Bellaiche}, referring the reader there for details. Let $L$ be a commutative, noetherian $\QQ_p$-Banach algebra with norm $|\cdot |$. \footnote{ The notation that Bella\"iche uses differs from that of Stevens, Pollack-Stevens, and Harron-Pollack.} \todo{Decide on which notation to adopt! Make list of differences}
 
 For each $r\in p^\QQ$, denote by $\cA[r](L)$ the $L$-module of functions $f:\ZZ_p\rightarrow L$ which, for all $e\in\ZZ_p$,  have power series expansions 
 \begin{equation*}
@@ -166,7 +164,7 @@ It is naturally a $\QQ_p$-Banach module under the norm $||\mu||_r := \sup_{f\in 
 \end{definition}
 
 \begin{remark}
-We note that the notation we have adopted differs from the notation in \cite{HarronPollack}, which defines the above modules as $\Hom_{\QQ_p}(\cA[r],L)$. This latter module is in fact much larger than the spaces we work with, and apparently does not satisfy desired base-change properties. We note that there is an injection $\cD[r](L)\hookrightarrow \Hom_{\QQ_p} (\cA[r], L)$.
+We note that the notation we have adopted differs from the notation in \cite{HarronPollack}, which defines the above modules as $\Hom_{\QQ_p}(\cA[r],L)$. Both modules are considered in both papers, but this latter module is in fact much larger than the spaces we work with, and apparently does not satisfy desired base-change properties. We note that there is an injection $\cD[r](L)\hookrightarrow \Hom_{\QQ_p} (\cA[r], L)$.
 \end{remark}
 
 \begin{proposition}[\cite{Bellaiche}, III.4.18 and III.4.21] For $r_1> r_2$, the natural restriction maps $\cA[r_1](L)\rightarrow \cA[r_2](L)$  and $\cD[r_2](L)\rightarrow \cD[r_1](L)$ are injective and compact.
@@ -249,13 +247,13 @@ where the right-hand-side is considered as an element of $\cA^\dagger(R)$--see e
 
 \section{Pairings on Coefficient Modules} \label{sec:coeff_pairing}
 
-We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trivial $\Gamma$ representation). We explicitly write down the pairing in the cases of interest and check that the necessary equivariance is satisfied. 
+We have assumed given a $\Gamma$-equivariant pairing $\langle~,~ \rangle : M \times M \longrightarrow E$ (or another trivial $\Gamma$ representation). We explicitly write down the pairing in our cases of interest and check that the necessary equivariance is satisfied. 
 
-\subsection{$\Sym^k(E^2)$}
+\subsection{$V_k(E)$}
 
-We identify $\Sym^k(E^2)$ with $E[X,Y]_k$, and endow it with left action of $\GL_2(\QQ)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
+As before, we identify $V_k(E)$ with $E[X,Y]_k$, and endow it with left action of $\GL_2(\QQ)$ by $\gamma \cdot P(X,Y) = P((X,Y)\gamma)=P(aX+cY,bX+dY).$ 
 \begin{definition}
-Define a bilinear pairing on $\Sym^k(E^2)$ by
+Define a bilinear pairing on $V_k(E)$ by
 \begin{equation*}
 	\langle X^iY^{k-i}, X^j Y^{k-j} \rangle = \begin{cases} (-1)^i {k \choose i} & \text{ if } i+j=k\\
 												0	& \text{ otherwise} \end{cases}
@@ -265,7 +263,7 @@ and extending via linearity.
 
 
 \begin{lemma}
-For all $\gamma\in \GL_2(\QQ)$, $P,Q\in\Sym^k(E^2)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
+For all $\gamma\in \GL_2(\QQ)$, $P,Q\in V_k(E)$, we have $\langle \gamma\cdot P,\gamma \cdot Q\rangle = \det(\gamma)^k \langle P,Q\rangle$.
 \end{lemma}
 \begin{proof}
 This can be seen via an ugly computation. (There should be an easy way to see this in terms of the wedge product).
@@ -273,7 +271,7 @@ This can be seen via an ugly computation. (There should be an easy way to see th
 
 For the purposes of Hecke-equivariance, we define a twisted pairing using the Atkin-Lehner involution $W_N = \begin{pmatrix} 0 & -1 \\ N & 0 \end{pmatrix}$.
 \begin{definition}
-The twisted pairing on $\Sym^k(E^2)$ is defined by
+The twisted pairing on $V_k(E)$ is defined by
 \begin{equation}
 	\langle P, Q\rangle^t := \langle P, W_N \cdot Q\rangle.
 \end{equation}
@@ -284,7 +282,7 @@ More explicitly,
 												0	& \text{ otherwise} \end{cases}
 \end{equation*}
 
-We can view $\Sym^k(\QQ_p^2)$ as a quotient of $\cD_k$, and the pairings from the previous section extend uniquely in a $\Sigma_0(p)$-equivariant way to $\cD_k$. Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
+The space $V_k(\QQ_p)$ is a quotient of $\cD_k(\QQ_p)$ via the specialization map $\rho_k: \cD_k\rightarrow V_k(\QQ_p)$. It can be shown that the pairings from the previous section extend in a $\Sigma_0(p)$-equivariant way to $\cD_k$. %Moreover, the twisted pairing behaves well with respect to our finite approximations. [Insert details]
 
 \begin{definition}
 Let $\langle~,~\rangle^t_N : \cD_k\times\cD_k\longrightarrow \QQ_p$ be the $\QQ_p$-bilinear pairing
@@ -359,6 +357,7 @@ The Hecke operators $T_\ell$ ($\ell\nmid N$, $U_q$ , and $\langle a \rangle$ are
 
 
 \section{Reducing to Level 1} \label{sec:level_one}
+[Rem: Hida's Elementary Theory of Eisenstein series, Appendix, Proposition 2, gives an isomorphism between $H^2_c(\Gamma, M)$ and $H^2_P(\Gamma, M)$.]
 
 Suppose that $\Phi, \Psi \in \Symb_{\Gamma_0(N)}(M)$ are overconvergent modular symbols.  As in Section \ref{sec:mod_curve_cohom}, we associate to them homogeneous $1$-cocycles in $Z^1(\Gamma_0(N), M)$ by the following formulas:
 \begin{align*}
